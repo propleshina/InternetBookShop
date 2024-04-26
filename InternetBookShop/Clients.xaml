@@ -9,16 +9,12 @@
       Title="Clients">
 
     <Grid>
-        <DataGrid x:Name="ClientData" HorizontalAlignment="Left" Height="322" Margin="29,28,0,0" VerticalAlignment="Top" Width="734">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding client_id}" Width="40"></DataGridTextColumn>
-                <DataGridTextColumn Header="Имя" Binding="{Binding name}" Width="100"></DataGridTextColumn>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding surname}" Width="100"></DataGridTextColumn>
-                <DataGridTextColumn Header="Отчество" Binding="{Binding patronymic}" Width="100"></DataGridTextColumn>
-                <DataGridTextColumn Header="email" Binding="{Binding email}" Width="120"></DataGridTextColumn>
-                <DataGridTextColumn Header="телефон" Binding="{Binding phone}" Width="80"></DataGridTextColumn>
-                <DataGridTextColumn Header="пол" Binding="{Binding gender}" Width="40"></DataGridTextColumn>
-            </DataGrid.Columns>
+        <DataGrid x:Name="ClientData" HorizontalAlignment="Left" Height="322" Margin="29,10,0,0" VerticalAlignment="Top" Width="734">
+
         </DataGrid>
+        <Button x:Name="RedactButton" Content="Редактировать" HorizontalAlignment="Left" Margin="29,346,0,0" VerticalAlignment="Top" Width="242" Height="42" Click="RedactButton_Click"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="650,346,0,0" VerticalAlignment="Top" Width="113" Height="42" Click="BackButton_Click"/>
+        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="295,346,0,0" VerticalAlignment="Top" Width="101" Height="42" Click="DeleteButton_Click" Visibility="Hidden"/>
+        <Button x:Name="SaveButton" Content="Сохранить" HorizontalAlignment="Left" Margin="422,346,0,0" VerticalAlignment="Top" Width="84" Height="42" Click="SaveButton_Click" Visibility="Hidden"/>
     </Grid>
 </Page>

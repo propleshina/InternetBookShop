@@ -1,0 +1,1320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище InternetBookShop_KyrcahModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="addresses">
+          <Key>
+            <PropertyRef Name="address_id" />
+          </Key>
+          <Property Name="address_id" Type="int" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="street" Type="varchar" MaxLength="50" />
+          <Property Name="post_index" Type="varchar" MaxLength="6" />
+          <Property Name="building_number" Type="varchar" MaxLength="4" />
+          <Property Name="door_number" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="author_id" />
+          </Key>
+          <Property Name="author_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="surname" Type="varchar" MaxLength="70" />
+          <Property Name="patronymic" Type="varchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="client_id" />
+          </Key>
+          <Property Name="client_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="surname" Type="varchar" MaxLength="70" />
+          <Property Name="patronymic" Type="varchar" MaxLength="70" />
+          <Property Name="email" Type="varchar" MaxLength="70" />
+          <Property Name="phone" Type="varchar" MaxLength="11" />
+          <Property Name="gender" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Coupons">
+          <Key>
+            <PropertyRef Name="coupon_id" />
+          </Key>
+          <Property Name="coupon_id" Type="int" Nullable="false" />
+          <Property Name="size" Type="int" />
+          <Property Name="categoryID" Type="int" />
+        </EntityType>
+        <EntityType Name="Discounts">
+          <Key>
+            <PropertyRef Name="discount_id" />
+          </Key>
+          <Property Name="discount_id" Type="int" Nullable="false" />
+          <Property Name="size" Type="int" />
+          <Property Name="categoryID" Type="int" />
+        </EntityType>
+        <EntityType Name="Favourities">
+          <Key>
+            <PropertyRef Name="favourite_id" />
+          </Key>
+          <Property Name="favourite_id" Type="int" Nullable="false" />
+          <Property Name="productID" Type="int" />
+        </EntityType>
+        <EntityType Name="Genre">
+          <Key>
+            <PropertyRef Name="genre_id" />
+          </Key>
+          <Property Name="genre_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="jobs">
+          <Key>
+            <PropertyRef Name="job_id" />
+          </Key>
+          <Property Name="job_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="order_status">
+          <Key>
+            <PropertyRef Name="status_id" />
+          </Key>
+          <Property Name="status_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="int" Nullable="false" />
+          <Property Name="client_id" Type="int" />
+          <Property Name="cartID" Type="int" />
+          <Property Name="addressID" Type="int" />
+          <Property Name="paymentID" Type="int" />
+          <Property Name="orderstatusID" Type="int" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="payment_id" />
+          </Key>
+          <Property Name="payment_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar(max)" />
+          <Property Name="weight" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="cost" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="authorID" Type="int" />
+          <Property Name="publisherID" Type="int" />
+          <Property Name="reviewID" Type="int" />
+          <Property Name="storageID" Type="int" />
+          <Property Name="genreID" Type="int" />
+          <Property Name="categoryID" Type="int" />
+        </EntityType>
+        <EntityType Name="Products_in_order">
+          <Key>
+            <PropertyRef Name="products_in_order_id" />
+          </Key>
+          <Property Name="products_in_order_id" Type="int" Nullable="false" />
+          <Property Name="counting" Type="int" />
+          <Property Name="productID" Type="int" />
+        </EntityType>
+        <EntityType Name="Publisher">
+          <Key>
+            <PropertyRef Name="publisher_id" />
+          </Key>
+          <Property Name="publisher_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="returns">
+          <Key>
+            <PropertyRef Name="return_id" />
+          </Key>
+          <Property Name="return_id" Type="int" Nullable="false" />
+          <Property Name="orderID" Type="int" />
+        </EntityType>
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="review_id" />
+          </Key>
+          <Property Name="review_id" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+          <Property Name="text" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="shopping_cart">
+          <Key>
+            <PropertyRef Name="cart_id" />
+          </Key>
+          <Property Name="cart_id" Type="int" Nullable="false" />
+          <Property Name="summ" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="products_in_orderID" Type="int" />
+          <Property Name="discountID" Type="int" />
+          <Property Name="couponID" Type="int" />
+        </EntityType>
+        <EntityType Name="storage">
+          <Key>
+            <PropertyRef Name="storage_id" />
+          </Key>
+          <Property Name="storage_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="adress" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="workers">
+          <Key>
+            <PropertyRef Name="worker_id" />
+          </Key>
+          <Property Name="worker_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="surname" Type="varchar" MaxLength="70" />
+          <Property Name="patronymic" Type="varchar" MaxLength="70" />
+          <Property Name="gender" Type="varchar" MaxLength="1" />
+          <Property Name="jobID" Type="int" />
+          <Property Name="login" Type="varchar" MaxLength="20" />
+          <Property Name="password" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK__Coupons__categor__412EB0B6">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Coupons" Type="Self.Coupons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="Coupons">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Discounts__categ__3E52440B">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Discounts" Type="Self.Discounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="Discounts">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Favouriti__produ__5AEE82B9">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Favourities" Type="Self.Favourities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="Favourities">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__addressI__5070F446">
+          <End Role="addresses" Type="Self.addresses" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="addresses">
+              <PropertyRef Name="address_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="addressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__cartID__4F7CD00D">
+          <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shopping_cart">
+              <PropertyRef Name="cart_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="cartID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__client_i__4E88ABD4">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="client_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="client_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__ordersta__52593CB8">
+          <End Role="order_status" Type="Self.order_status" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order_status">
+              <PropertyRef Name="status_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="orderstatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__paymentI__5165187F">
+          <End Role="payment" Type="Self.payment" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="payment">
+              <PropertyRef Name="payment_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="paymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__authorI__33D4B598">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="author_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="authorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__categor__31EC6D26">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__genreID__36B12243">
+          <End Role="Genre" Type="Self.Genre" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genre">
+              <PropertyRef Name="genre_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="genreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__publish__32E0915F">
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="publisher_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="publisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__reviewI__34C8D9D1">
+          <End Role="Review" Type="Self.Review" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Review">
+              <PropertyRef Name="review_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="reviewID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__storage__35BCFE0A">
+          <End Role="storage" Type="Self.storage" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="storage">
+              <PropertyRef Name="storage_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="storageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products___produ__3B75D760">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Products_in_order" Type="Self.Products_in_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="Products_in_order">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__returns__orderID__5535A963">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="returns" Type="Self.returns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="returns">
+              <PropertyRef Name="orderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__shopping___coupo__45F365D3">
+          <End Role="Coupons" Type="Self.Coupons" Multiplicity="0..1" />
+          <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coupons">
+              <PropertyRef Name="coupon_id" />
+            </Principal>
+            <Dependent Role="shopping_cart">
+              <PropertyRef Name="couponID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__shopping___disco__44FF419A">
+          <End Role="Discounts" Type="Self.Discounts" Multiplicity="0..1" />
+          <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discounts">
+              <PropertyRef Name="discount_id" />
+            </Principal>
+            <Dependent Role="shopping_cart">
+              <PropertyRef Name="discountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__shopping___produ__440B1D61">
+          <End Role="Products_in_order" Type="Self.Products_in_order" Multiplicity="0..1" />
+          <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products_in_order">
+              <PropertyRef Name="products_in_order_id" />
+            </Principal>
+            <Dependent Role="shopping_cart">
+              <PropertyRef Name="products_in_orderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__workers__jobID__5812160E">
+          <End Role="jobs" Type="Self.jobs" Multiplicity="0..1" />
+          <End Role="workers" Type="Self.workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jobs">
+              <PropertyRef Name="job_id" />
+            </Principal>
+            <Dependent Role="workers">
+              <PropertyRef Name="jobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище InternetBookShop_KyrcahModelContainer">
+          <EntitySet Name="addresses" EntityType="Self.addresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Coupons" EntityType="Self.Coupons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Discounts" EntityType="Self.Discounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Favourities" EntityType="Self.Favourities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="jobs" EntityType="Self.jobs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order_status" EntityType="Self.order_status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products_in_order" EntityType="Self.Products_in_order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Publisher" EntityType="Self.Publisher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="returns" EntityType="Self.returns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="shopping_cart" EntityType="Self.shopping_cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="storage" EntityType="Self.storage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="workers" EntityType="Self.workers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Coupons__categor__412EB0B6" Association="Self.FK__Coupons__categor__412EB0B6">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Coupons" EntitySet="Coupons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Discounts__categ__3E52440B" Association="Self.FK__Discounts__categ__3E52440B">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Discounts" EntitySet="Discounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Favouriti__produ__5AEE82B9" Association="Self.FK__Favouriti__produ__5AEE82B9">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Favourities" EntitySet="Favourities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__addressI__5070F446" Association="Self.FK__Orders__addressI__5070F446">
+            <End Role="addresses" EntitySet="addresses" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__cartID__4F7CD00D" Association="Self.FK__Orders__cartID__4F7CD00D">
+            <End Role="shopping_cart" EntitySet="shopping_cart" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__client_i__4E88ABD4" Association="Self.FK__Orders__client_i__4E88ABD4">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__ordersta__52593CB8" Association="Self.FK__Orders__ordersta__52593CB8">
+            <End Role="order_status" EntitySet="order_status" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__paymentI__5165187F" Association="Self.FK__Orders__paymentI__5165187F">
+            <End Role="payment" EntitySet="payment" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__authorI__33D4B598" Association="Self.FK__Product__authorI__33D4B598">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__categor__31EC6D26" Association="Self.FK__Product__categor__31EC6D26">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__genreID__36B12243" Association="Self.FK__Product__genreID__36B12243">
+            <End Role="Genre" EntitySet="Genre" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__publish__32E0915F" Association="Self.FK__Product__publish__32E0915F">
+            <End Role="Publisher" EntitySet="Publisher" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__reviewI__34C8D9D1" Association="Self.FK__Product__reviewI__34C8D9D1">
+            <End Role="Review" EntitySet="Review" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__storage__35BCFE0A" Association="Self.FK__Product__storage__35BCFE0A">
+            <End Role="storage" EntitySet="storage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products___produ__3B75D760" Association="Self.FK__Products___produ__3B75D760">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Products_in_order" EntitySet="Products_in_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__returns__orderID__5535A963" Association="Self.FK__returns__orderID__5535A963">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="returns" EntitySet="returns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__shopping___coupo__45F365D3" Association="Self.FK__shopping___coupo__45F365D3">
+            <End Role="Coupons" EntitySet="Coupons" />
+            <End Role="shopping_cart" EntitySet="shopping_cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__shopping___disco__44FF419A" Association="Self.FK__shopping___disco__44FF419A">
+            <End Role="Discounts" EntitySet="Discounts" />
+            <End Role="shopping_cart" EntitySet="shopping_cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__shopping___produ__440B1D61" Association="Self.FK__shopping___produ__440B1D61">
+            <End Role="Products_in_order" EntitySet="Products_in_order" />
+            <End Role="shopping_cart" EntitySet="shopping_cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__workers__jobID__5812160E" Association="Self.FK__workers__jobID__5812160E">
+            <End Role="jobs" EntitySet="jobs" />
+            <End Role="workers" EntitySet="workers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InternetBookShop_KyrcahModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="addresses">
+          <Key>
+            <PropertyRef Name="address_id" />
+          </Key>
+          <Property Name="address_id" Type="Int32" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="post_index" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="building_number" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="door_number" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__addressI__5070F446" FromRole="addresses" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="author_id" />
+          </Key>
+          <Property Name="author_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="surname" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="patronymic" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Product__authorI__33D4B598" FromRole="Author" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Coupons" Relationship="Self.FK__Coupons__categor__412EB0B6" FromRole="Category" ToRole="Coupons" />
+          <NavigationProperty Name="Discounts" Relationship="Self.FK__Discounts__categ__3E52440B" FromRole="Category" ToRole="Discounts" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Product__categor__31EC6D26" FromRole="Category" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="client_id" />
+          </Key>
+          <Property Name="client_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="surname" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="patronymic" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__client_i__4E88ABD4" FromRole="Client" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Coupons">
+          <Key>
+            <PropertyRef Name="coupon_id" />
+          </Key>
+          <Property Name="coupon_id" Type="Int32" Nullable="false" />
+          <Property Name="size" Type="Int32" />
+          <Property Name="categoryID" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Coupons__categor__412EB0B6" FromRole="Coupons" ToRole="Category" />
+          <NavigationProperty Name="shopping_cart" Relationship="Self.FK__shopping___coupo__45F365D3" FromRole="Coupons" ToRole="shopping_cart" />
+        </EntityType>
+        <EntityType Name="Discounts">
+          <Key>
+            <PropertyRef Name="discount_id" />
+          </Key>
+          <Property Name="discount_id" Type="Int32" Nullable="false" />
+          <Property Name="size" Type="Int32" />
+          <Property Name="categoryID" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Discounts__categ__3E52440B" FromRole="Discounts" ToRole="Category" />
+          <NavigationProperty Name="shopping_cart" Relationship="Self.FK__shopping___disco__44FF419A" FromRole="Discounts" ToRole="shopping_cart" />
+        </EntityType>
+        <EntityType Name="Favourities">
+          <Key>
+            <PropertyRef Name="favourite_id" />
+          </Key>
+          <Property Name="favourite_id" Type="Int32" Nullable="false" />
+          <Property Name="productID" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Favouriti__produ__5AEE82B9" FromRole="Favourities" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Genre">
+          <Key>
+            <PropertyRef Name="genre_id" />
+          </Key>
+          <Property Name="genre_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Product__genreID__36B12243" FromRole="Genre" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="jobs">
+          <Key>
+            <PropertyRef Name="job_id" />
+          </Key>
+          <Property Name="job_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="workers" Relationship="Self.FK__workers__jobID__5812160E" FromRole="jobs" ToRole="workers" />
+        </EntityType>
+        <EntityType Name="order_status">
+          <Key>
+            <PropertyRef Name="status_id" />
+          </Key>
+          <Property Name="status_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__ordersta__52593CB8" FromRole="order_status" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="Int32" Nullable="false" />
+          <Property Name="client_id" Type="Int32" />
+          <Property Name="cartID" Type="Int32" />
+          <Property Name="addressID" Type="Int32" />
+          <Property Name="paymentID" Type="Int32" />
+          <Property Name="orderstatusID" Type="Int32" />
+          <NavigationProperty Name="addresses" Relationship="Self.FK__Orders__addressI__5070F446" FromRole="Orders" ToRole="addresses" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Orders__client_i__4E88ABD4" FromRole="Orders" ToRole="Client" />
+          <NavigationProperty Name="order_status" Relationship="Self.FK__Orders__ordersta__52593CB8" FromRole="Orders" ToRole="order_status" />
+          <NavigationProperty Name="shopping_cart" Relationship="Self.FK__Orders__cartID__4F7CD00D" FromRole="Orders" ToRole="shopping_cart" />
+          <NavigationProperty Name="payment" Relationship="Self.FK__Orders__paymentI__5165187F" FromRole="Orders" ToRole="payment" />
+          <NavigationProperty Name="returns" Relationship="Self.FK__returns__orderID__5535A963" FromRole="Orders" ToRole="returns" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="payment_id" />
+          </Key>
+          <Property Name="payment_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__paymentI__5165187F" FromRole="payment" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="weight" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="cost" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="authorID" Type="Int32" />
+          <Property Name="publisherID" Type="Int32" />
+          <Property Name="reviewID" Type="Int32" />
+          <Property Name="storageID" Type="Int32" />
+          <Property Name="genreID" Type="Int32" />
+          <Property Name="categoryID" Type="Int32" />
+          <NavigationProperty Name="Author" Relationship="Self.FK__Product__authorI__33D4B598" FromRole="Product" ToRole="Author" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Product__categor__31EC6D26" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="Favourities" Relationship="Self.FK__Favouriti__produ__5AEE82B9" FromRole="Product" ToRole="Favourities" />
+          <NavigationProperty Name="Genre" Relationship="Self.FK__Product__genreID__36B12243" FromRole="Product" ToRole="Genre" />
+          <NavigationProperty Name="Publisher" Relationship="Self.FK__Product__publish__32E0915F" FromRole="Product" ToRole="Publisher" />
+          <NavigationProperty Name="Review" Relationship="Self.FK__Product__reviewI__34C8D9D1" FromRole="Product" ToRole="Review" />
+          <NavigationProperty Name="storage" Relationship="Self.FK__Product__storage__35BCFE0A" FromRole="Product" ToRole="storage" />
+          <NavigationProperty Name="Products_in_order" Relationship="Self.FK__Products___produ__3B75D760" FromRole="Product" ToRole="Products_in_order" />
+        </EntityType>
+        <EntityType Name="Products_in_order">
+          <Key>
+            <PropertyRef Name="products_in_order_id" />
+          </Key>
+          <Property Name="products_in_order_id" Type="Int32" Nullable="false" />
+          <Property Name="counting" Type="Int32" />
+          <Property Name="productID" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Products___produ__3B75D760" FromRole="Products_in_order" ToRole="Product" />
+          <NavigationProperty Name="shopping_cart" Relationship="Self.FK__shopping___produ__440B1D61" FromRole="Products_in_order" ToRole="shopping_cart" />
+        </EntityType>
+        <EntityType Name="Publisher">
+          <Key>
+            <PropertyRef Name="publisher_id" />
+          </Key>
+          <Property Name="publisher_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Product__publish__32E0915F" FromRole="Publisher" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="returns">
+          <Key>
+            <PropertyRef Name="return_id" />
+          </Key>
+          <Property Name="return_id" Type="Int32" Nullable="false" />
+          <Property Name="orderID" Type="Int32" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__returns__orderID__5535A963" FromRole="returns" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="review_id" />
+          </Key>
+          <Property Name="review_id" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="text" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Product__reviewI__34C8D9D1" FromRole="Review" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="shopping_cart">
+          <Key>
+            <PropertyRef Name="cart_id" />
+          </Key>
+          <Property Name="cart_id" Type="Int32" Nullable="false" />
+          <Property Name="summ" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="products_in_orderID" Type="Int32" />
+          <Property Name="discountID" Type="Int32" />
+          <Property Name="couponID" Type="Int32" />
+          <NavigationProperty Name="Coupons" Relationship="Self.FK__shopping___coupo__45F365D3" FromRole="shopping_cart" ToRole="Coupons" />
+          <NavigationProperty Name="Discounts" Relationship="Self.FK__shopping___disco__44FF419A" FromRole="shopping_cart" ToRole="Discounts" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__cartID__4F7CD00D" FromRole="shopping_cart" ToRole="Orders" />
+          <NavigationProperty Name="Products_in_order" Relationship="Self.FK__shopping___produ__440B1D61" FromRole="shopping_cart" ToRole="Products_in_order" />
+        </EntityType>
+        <EntityType Name="storage">
+          <Key>
+            <PropertyRef Name="storage_id" />
+          </Key>
+          <Property Name="storage_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adress" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Product__storage__35BCFE0A" FromRole="storage" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="workers">
+          <Key>
+            <PropertyRef Name="worker_id" />
+          </Key>
+          <Property Name="worker_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="surname" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="patronymic" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="jobID" Type="Int32" />
+          <Property Name="login" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="jobs" Relationship="Self.FK__workers__jobID__5812160E" FromRole="workers" ToRole="jobs" />
+        </EntityType>
+        <Association Name="FK__Orders__addressI__5070F446">
+          <End Role="addresses" Type="Self.addresses" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="addresses">
+              <PropertyRef Name="address_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="addressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__authorI__33D4B598">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="author_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="authorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Coupons__categor__412EB0B6">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Coupons" Type="Self.Coupons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="Coupons">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Discounts__categ__3E52440B">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Discounts" Type="Self.Discounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="Discounts">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__categor__31EC6D26">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__client_i__4E88ABD4">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="client_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="client_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__shopping___coupo__45F365D3">
+          <End Role="Coupons" Type="Self.Coupons" Multiplicity="0..1" />
+          <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coupons">
+              <PropertyRef Name="coupon_id" />
+            </Principal>
+            <Dependent Role="shopping_cart">
+              <PropertyRef Name="couponID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__shopping___disco__44FF419A">
+          <End Role="Discounts" Type="Self.Discounts" Multiplicity="0..1" />
+          <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discounts">
+              <PropertyRef Name="discount_id" />
+            </Principal>
+            <Dependent Role="shopping_cart">
+              <PropertyRef Name="discountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Favouriti__produ__5AEE82B9">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Favourities" Type="Self.Favourities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="Favourities">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__genreID__36B12243">
+          <End Role="Genre" Type="Self.Genre" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genre">
+              <PropertyRef Name="genre_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="genreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__workers__jobID__5812160E">
+          <End Role="jobs" Type="Self.jobs" Multiplicity="0..1" />
+          <End Role="workers" Type="Self.workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jobs">
+              <PropertyRef Name="job_id" />
+            </Principal>
+            <Dependent Role="workers">
+              <PropertyRef Name="jobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__ordersta__52593CB8">
+          <End Role="order_status" Type="Self.order_status" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order_status">
+              <PropertyRef Name="status_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="orderstatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__cartID__4F7CD00D">
+          <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shopping_cart">
+              <PropertyRef Name="cart_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="cartID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__paymentI__5165187F">
+          <End Role="payment" Type="Self.payment" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="payment">
+              <PropertyRef Name="payment_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="paymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__returns__orderID__5535A963">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="returns" Type="Self.returns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="returns">
+              <PropertyRef Name="orderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__publish__32E0915F">
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="publisher_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="publisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__reviewI__34C8D9D1">
+          <End Role="Review" Type="Self.Review" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Review">
+              <PropertyRef Name="review_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="reviewID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__storage__35BCFE0A">
+          <End Role="storage" Type="Self.storage" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="storage">
+              <PropertyRef Name="storage_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="storageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products___produ__3B75D760">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Products_in_order" Type="Self.Products_in_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="Products_in_order">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__shopping___produ__440B1D61">
+          <End Role="Products_in_order" Type="Self.Products_in_order" Multiplicity="0..1" />
+          <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products_in_order">
+              <PropertyRef Name="products_in_order_id" />
+            </Principal>
+            <Dependent Role="shopping_cart">
+              <PropertyRef Name="products_in_orderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InternetBookShop_KyrcahEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="addresses" EntityType="Self.addresses" />
+          <EntitySet Name="Author" EntityType="Self.Author" />
+          <EntitySet Name="Category" EntityType="Self.Category" />
+          <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="Coupons" EntityType="Self.Coupons" />
+          <EntitySet Name="Discounts" EntityType="Self.Discounts" />
+          <EntitySet Name="Favourities" EntityType="Self.Favourities" />
+          <EntitySet Name="Genre" EntityType="Self.Genre" />
+          <EntitySet Name="jobs" EntityType="Self.jobs" />
+          <EntitySet Name="order_status" EntityType="Self.order_status" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="payment" EntityType="Self.payment" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="Products_in_order" EntityType="Self.Products_in_order" />
+          <EntitySet Name="Publisher" EntityType="Self.Publisher" />
+          <EntitySet Name="returns" EntityType="Self.returns" />
+          <EntitySet Name="Review" EntityType="Self.Review" />
+          <EntitySet Name="shopping_cart" EntityType="Self.shopping_cart" />
+          <EntitySet Name="storage" EntityType="Self.storage" />
+          <EntitySet Name="workers" EntityType="Self.workers" />
+          <AssociationSet Name="FK__Orders__addressI__5070F446" Association="Self.FK__Orders__addressI__5070F446">
+            <End Role="addresses" EntitySet="addresses" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__authorI__33D4B598" Association="Self.FK__Product__authorI__33D4B598">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Coupons__categor__412EB0B6" Association="Self.FK__Coupons__categor__412EB0B6">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Coupons" EntitySet="Coupons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Discounts__categ__3E52440B" Association="Self.FK__Discounts__categ__3E52440B">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Discounts" EntitySet="Discounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__categor__31EC6D26" Association="Self.FK__Product__categor__31EC6D26">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__client_i__4E88ABD4" Association="Self.FK__Orders__client_i__4E88ABD4">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__shopping___coupo__45F365D3" Association="Self.FK__shopping___coupo__45F365D3">
+            <End Role="Coupons" EntitySet="Coupons" />
+            <End Role="shopping_cart" EntitySet="shopping_cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__shopping___disco__44FF419A" Association="Self.FK__shopping___disco__44FF419A">
+            <End Role="Discounts" EntitySet="Discounts" />
+            <End Role="shopping_cart" EntitySet="shopping_cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Favouriti__produ__5AEE82B9" Association="Self.FK__Favouriti__produ__5AEE82B9">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Favourities" EntitySet="Favourities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__genreID__36B12243" Association="Self.FK__Product__genreID__36B12243">
+            <End Role="Genre" EntitySet="Genre" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__workers__jobID__5812160E" Association="Self.FK__workers__jobID__5812160E">
+            <End Role="jobs" EntitySet="jobs" />
+            <End Role="workers" EntitySet="workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__ordersta__52593CB8" Association="Self.FK__Orders__ordersta__52593CB8">
+            <End Role="order_status" EntitySet="order_status" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__cartID__4F7CD00D" Association="Self.FK__Orders__cartID__4F7CD00D">
+            <End Role="shopping_cart" EntitySet="shopping_cart" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__paymentI__5165187F" Association="Self.FK__Orders__paymentI__5165187F">
+            <End Role="payment" EntitySet="payment" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__returns__orderID__5535A963" Association="Self.FK__returns__orderID__5535A963">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="returns" EntitySet="returns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__publish__32E0915F" Association="Self.FK__Product__publish__32E0915F">
+            <End Role="Publisher" EntitySet="Publisher" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__reviewI__34C8D9D1" Association="Self.FK__Product__reviewI__34C8D9D1">
+            <End Role="Review" EntitySet="Review" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__storage__35BCFE0A" Association="Self.FK__Product__storage__35BCFE0A">
+            <End Role="storage" EntitySet="storage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products___produ__3B75D760" Association="Self.FK__Products___produ__3B75D760">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Products_in_order" EntitySet="Products_in_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__shopping___produ__440B1D61" Association="Self.FK__shopping___produ__440B1D61">
+            <End Role="Products_in_order" EntitySet="Products_in_order" />
+            <End Role="shopping_cart" EntitySet="shopping_cart" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище InternetBookShop_KyrcahModelContainer" CdmEntityContainer="InternetBookShop_KyrcahEntities">
+          <EntitySetMapping Name="addresses">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.addresses">
+              <MappingFragment StoreEntitySet="addresses">
+                <ScalarProperty Name="address_id" ColumnName="address_id" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="post_index" ColumnName="post_index" />
+                <ScalarProperty Name="building_number" ColumnName="building_number" />
+                <ScalarProperty Name="door_number" ColumnName="door_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Author">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="author_id" ColumnName="author_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Coupons">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.Coupons">
+              <MappingFragment StoreEntitySet="Coupons">
+                <ScalarProperty Name="coupon_id" ColumnName="coupon_id" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discounts">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.Discounts">
+              <MappingFragment StoreEntitySet="Discounts">
+                <ScalarProperty Name="discount_id" ColumnName="discount_id" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Favourities">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.Favourities">
+              <MappingFragment StoreEntitySet="Favourities">
+                <ScalarProperty Name="favourite_id" ColumnName="favourite_id" />
+                <ScalarProperty Name="productID" ColumnName="productID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genre">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.Genre">
+              <MappingFragment StoreEntitySet="Genre">
+                <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jobs">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.jobs">
+              <MappingFragment StoreEntitySet="jobs">
+                <ScalarProperty Name="job_id" ColumnName="job_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="order_status">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.order_status">
+              <MappingFragment StoreEntitySet="order_status">
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
+                <ScalarProperty Name="cartID" ColumnName="cartID" />
+                <ScalarProperty Name="addressID" ColumnName="addressID" />
+                <ScalarProperty Name="paymentID" ColumnName="paymentID" />
+                <ScalarProperty Name="orderstatusID" ColumnName="orderstatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payment">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.payment">
+              <MappingFragment StoreEntitySet="payment">
+                <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="authorID" ColumnName="authorID" />
+                <ScalarProperty Name="publisherID" ColumnName="publisherID" />
+                <ScalarProperty Name="reviewID" ColumnName="reviewID" />
+                <ScalarProperty Name="storageID" ColumnName="storageID" />
+                <ScalarProperty Name="genreID" ColumnName="genreID" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products_in_order">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.Products_in_order">
+              <MappingFragment StoreEntitySet="Products_in_order">
+                <ScalarProperty Name="products_in_order_id" ColumnName="products_in_order_id" />
+                <ScalarProperty Name="counting" ColumnName="counting" />
+                <ScalarProperty Name="productID" ColumnName="productID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publisher">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.Publisher">
+              <MappingFragment StoreEntitySet="Publisher">
+                <ScalarProperty Name="publisher_id" ColumnName="publisher_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="returns">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.returns">
+              <MappingFragment StoreEntitySet="returns">
+                <ScalarProperty Name="return_id" ColumnName="return_id" />
+                <ScalarProperty Name="orderID" ColumnName="orderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Review">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.Review">
+              <MappingFragment StoreEntitySet="Review">
+                <ScalarProperty Name="review_id" ColumnName="review_id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="text" ColumnName="text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="shopping_cart">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.shopping_cart">
+              <MappingFragment StoreEntitySet="shopping_cart">
+                <ScalarProperty Name="cart_id" ColumnName="cart_id" />
+                <ScalarProperty Name="summ" ColumnName="summ" />
+                <ScalarProperty Name="products_in_orderID" ColumnName="products_in_orderID" />
+                <ScalarProperty Name="discountID" ColumnName="discountID" />
+                <ScalarProperty Name="couponID" ColumnName="couponID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storage">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.storage">
+              <MappingFragment StoreEntitySet="storage">
+                <ScalarProperty Name="storage_id" ColumnName="storage_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="adress" ColumnName="adress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="workers">
+            <EntityTypeMapping TypeName="InternetBookShop_KyrcahModel.workers">
+              <MappingFragment StoreEntitySet="workers">
+                <ScalarProperty Name="worker_id" ColumnName="worker_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="jobID" ColumnName="jobID" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -8,13 +8,76 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Clients">
 
-    <Grid>
-        <DataGrid x:Name="ClientData" HorizontalAlignment="Left" Height="322" Margin="29,10,0,0" VerticalAlignment="Top" Width="734">
+    <Grid Background="#FFDA964C">
 
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="13"/>
+            <RowDefinition Height="101"/>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="56"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="210"></ColumnDefinition>
+            <ColumnDefinition Width="39*"></ColumnDefinition>
+            <ColumnDefinition Width="40*"></ColumnDefinition>
+            <ColumnDefinition Width="40*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="Image4.png" Stretch="Fill" Grid.RowSpan="8"/>
+
+        <Grid
+            Margin="0,0,0,30" Grid.Row="1" Grid.RowSpan="2">
+            <Image Source="Icons/owl_logo.png" Height="100" Width="100" HorizontalAlignment="Left" Margin="40,-30,30,0"/>
+        </Grid>
+
+        <MenuItem Grid.Row="2" Header="Сотрудники" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold">
+            <MenuItem.Icon>
+                <Image Source="Icons/worker.png"/>
+            </MenuItem.Icon>
+        </MenuItem>
+
+        <MenuItem Grid.Row="3" Header="Клиенты" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F"  FontSize="18" FontWeight="Bold">
+            <MenuItem.Icon>
+                <Image Source="Icons/client.png"/>
+            </MenuItem.Icon>
+        </MenuItem>
+
+        <MenuItem Grid.Row="4" Header="Издательства" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold">
+            <MenuItem.Icon>
+                <Image Source="Icons/publisher.png"/>
+            </MenuItem.Icon>
+        </MenuItem>
+
+        <MenuItem Grid.Row="5" Header="Товары" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold">
+            <MenuItem.Icon>
+                <Image Source="Icons/books.png"/>
+            </MenuItem.Icon>
+        </MenuItem>
+
+        <MenuItem Grid.Row="6" Header="Заказы" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold">
+            <MenuItem.Icon>
+                <Image Source="Icons/order.png"/>
+            </MenuItem.Icon>
+        </MenuItem>
+
+        <MenuItem Grid.Row="7" Header="Возвраты" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold">
+            <MenuItem.Icon>
+                <Image Source="Icons/return.png"/>
+            </MenuItem.Icon>
+        </MenuItem>
+
+        <DataGrid x:Name="ClientData" HorizontalAlignment="Left" Height="318" Margin="28,0,0,0" VerticalAlignment="Top" Width="523" Grid.ColumnSpan="3" Grid.Column="1" Grid.RowSpan="5" Grid.Row="1" >
         </DataGrid>
-        <Button x:Name="RedactButton" Content="Редактировать" HorizontalAlignment="Left" Margin="29,346,0,0" VerticalAlignment="Top" Width="242" Height="42" Click="RedactButton_Click"/>
-        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="650,346,0,0" VerticalAlignment="Top" Width="113" Height="42" Click="BackButton_Click"/>
-        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="295,346,0,0" VerticalAlignment="Top" Width="101" Height="42" Click="DeleteButton_Click" Visibility="Hidden"/>
-        <Button x:Name="SaveButton" Content="Сохранить" HorizontalAlignment="Left" Margin="422,346,0,0" VerticalAlignment="Top" Width="84" Height="42" Click="SaveButton_Click" Visibility="Hidden"/>
+        <Button x:Name="RedactButton" Content="Редактировать" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" Width="242" Height="42" Click="RedactButton_Click" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="6"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="46,10,0,0" VerticalAlignment="Top" Width="113" Height="42" Click="BackButton_Click" Grid.Column="3" Grid.Row="6"/>
+        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="28,1,0,0" VerticalAlignment="Top" Width="116" Height="42" Click="DeleteButton_Click" Visibility="Hidden" Grid.Column="1" Grid.Row="7" />
+        <Button x:Name="SaveButton" Content="Сохранить" HorizontalAlignment="Left" Margin="149,1,0,0" VerticalAlignment="Top" Width="121" Height="42" Click="SaveButton_Click" Visibility="Hidden" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="7" />
     </Grid>
 </Page>
+

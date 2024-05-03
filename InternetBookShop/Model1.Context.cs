@@ -16,14 +16,17 @@ namespace InternetBookShop
     public partial class InternetBookShop_KyrcahEntities : DbContext
     {
         private static InternetBookShop_KyrcahEntities _context;
+
         public InternetBookShop_KyrcahEntities()
             : base("name=InternetBookShop_KyrcahEntities")
         {
         }
+    
         public static InternetBookShop_KyrcahEntities GetContext()
         {
             if (_context == null)
-                _context = new InternetBookShop_KyrcahEntities(); return _context;
+                _context = new InternetBookShop_KyrcahEntities();
+            return _context;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

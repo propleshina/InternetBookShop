@@ -29,5 +29,10 @@ namespace InternetBookShop
         {
             NavigationService.Navigate(new Clients());
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

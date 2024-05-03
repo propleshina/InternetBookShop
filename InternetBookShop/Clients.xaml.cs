@@ -61,11 +61,12 @@ namespace InternetBookShop
             var row = ClientData.SelectedItems.Cast<Client>().ToList();
             InternetBookShop_KyrcahEntities.GetContext().Client.RemoveRange(row);
             InternetBookShop_KyrcahEntities.GetContext().SaveChanges();
-            MessageBox.Show("пися");
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            var row = ClientData.SelectedItems.Cast<Client>().ToList();
+            InternetBookShop_KyrcahEntities.GetContext().Client.AddRange(row);
             InternetBookShop_KyrcahEntities.GetContext().SaveChanges();
         }
     }

@@ -8,31 +8,68 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="BD">
 
-    <Grid Background="#FFF7F6F6">
-        <Button Content="Клиенты" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="157" Height="46" FontWeight="Bold" FontSize="20" Click="Client_but" OpacityMask="#FFFFCDCD" Foreground="#FFF7F6F6">
-            <Button.Background>
-                <SolidColorBrush Color="#FF99B4D1"/>
-            </Button.Background>
-        </Button>
-        <Button Content="Категории" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="157" Height="47" FontWeight="Bold" FontSize="20" Foreground="#FFDC97A5" Background="#FF203F54"/>
-        <Button Content="Издательства" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Width="157" Height="46" FontWeight="Bold" FontSize="20" OpacityMask="#FFFFCDCD" Foreground="#FFF7F6F6" Background="#FF99B4D1"/>
-        <Button Content="Авторы" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top" Width="157" Height="46" FontWeight="Bold" FontSize="20" Foreground="#FFDC97A5" Background="#FF203F54"/>
-        <Button Content="Отзывы" HorizontalAlignment="Left" Margin="10,291,0,0" VerticalAlignment="Top" Width="157" Height="46" FontWeight="Bold" FontSize="20"  OpacityMask="#FFFFCDCD" Foreground="#FFF7F6F6" Background="#FF99B4D1"/>
-        <Button Content="Склады" HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" Width="189" Height="46" FontWeight="Bold" FontSize="20" Foreground="#FFDC97A5" Background="#FF203F54"/>
-        <Button Content="Жанры" HorizontalAlignment="Left" Margin="194,81,0,0" VerticalAlignment="Top" Width="189" Height="47" FontWeight="Bold" FontSize="20"  OpacityMask="#FFFFCDCD" Foreground="#FFF7F6F6" Background="#FF99B4D1"/>
-        <Button Content="Товары" HorizontalAlignment="Left" Margin="194,150,0,0" VerticalAlignment="Top" Width="189" Height="46" FontWeight="Bold" FontSize="20" Foreground="#FFDC97A5" Background="#FF203F54"/>
-        <Button Content="Должности" HorizontalAlignment="Left" Margin="194,220,0,0" VerticalAlignment="Top" Width="189" Height="46" FontWeight="Bold" FontSize="20"  OpacityMask="#FFFFCDCD" Foreground="#FFF7F6F6" Background="#FF99B4D1"/>
-        <Button Content="Товары в заказе" HorizontalAlignment="Left" Margin="194,291,0,0" VerticalAlignment="Top" Width="189" Height="46" FontWeight="Bold" FontSize="20" Foreground="#FFDC97A5" Background="#FF203F54"/>
-        <Button Content="Скидки" HorizontalAlignment="Left" Margin="416,10,0,0" VerticalAlignment="Top" Width="158" Height="46" FontWeight="Bold" FontSize="20"  OpacityMask="#FFFFCDCD" Foreground="#FFF7F6F6" Background="#FF99B4D1"/>
-        <Button Content="Купоны" HorizontalAlignment="Left" Margin="416,81,0,0" VerticalAlignment="Top" Width="158" Height="47" FontWeight="Bold" FontSize="20" Foreground="#FFDC97A5" Background="#FF203F54"/>
-        <Button Content="Корзины" HorizontalAlignment="Left" Margin="416,150,0,0" VerticalAlignment="Top" Width="158" Height="46" FontWeight="Bold" FontSize="20"  OpacityMask="#FFFFCDCD" Foreground="#FFF7F6F6" Background="#FF99B4D1"/>
-        <Button Content="Адреса" HorizontalAlignment="Left" Margin="416,220,0,0" VerticalAlignment="Top" Width="158" Height="46" FontWeight="Bold" FontSize="20" Foreground="#FFDC97A5" Background="#FF203F54"/>
-        <Button Content="Оплата" HorizontalAlignment="Left" Margin="416,291,0,0" VerticalAlignment="Top" Width="158" Height="46" FontWeight="Bold" FontSize="20"  OpacityMask="#FFFFCDCD" Foreground="#FFF7F6F6" Background="#FF99B4D1"/>
-        <Button Content="Статусы заказов" HorizontalAlignment="Left" Margin="606,10,0,0" VerticalAlignment="Top" Width="184" Height="46" FontWeight="Bold" FontSize="20" Foreground="#FFDC97A5" Background="#FF203F54"/>
-        <Button Content="Заказы" HorizontalAlignment="Left" Margin="606,81,0,0" VerticalAlignment="Top" Width="184" Height="47" FontWeight="Bold" FontSize="20"  OpacityMask="#FFFFCDCD" Foreground="#FFF7F6F6" Background="#FF99B4D1"/>
-        <Button Content="Возвраты" HorizontalAlignment="Left" Margin="606,150,0,0" VerticalAlignment="Top" Width="184" Height="46" FontWeight="Bold" FontSize="20" Foreground="#FFDC97A5" Background="#FF203F54"/>
-        <Button Content="Сотрудники" HorizontalAlignment="Left" Margin="606,220,0,0" VerticalAlignment="Top" Width="184" Height="46" FontWeight="Bold" FontSize="20"  OpacityMask="#FFFFCDCD" Foreground="#FFF7F6F6" Background="#FF99B4D1"/>
-        <Button Content="Избранные" HorizontalAlignment="Left" Margin="606,291,0,0" VerticalAlignment="Top" Width="184" Height="46" FontWeight="Bold" FontSize="20" Foreground="#FFDC97A5" Background="#FF203F54"/>
+    <Grid Background="#FFDA964C">
 
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="13"/>
+            <RowDefinition Height="101"/>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="56"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="210"></ColumnDefinition>
+            <ColumnDefinition Width="39*"></ColumnDefinition>
+            <ColumnDefinition Width="40*"></ColumnDefinition>
+            <ColumnDefinition Width="40*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="Image4.png" Stretch="Fill" Grid.RowSpan="8"/>
+
+        <Grid
+            Margin="0,0,0,30" Grid.Row="1" Grid.RowSpan="2">
+            <Image Source="Icons/owl_logo.png" Height="100" Width="100" HorizontalAlignment="Left" Margin="40,-30,30,0"/>
+        </Grid>
+
+        <MenuItem Grid.Row="2" Header="Сотрудники" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" Click="MenuItem_Click" FontSize="18" FontWeight="Bold">
+            <MenuItem.Icon>
+                <Image Source="Icons/worker.png"/>
+            </MenuItem.Icon>
+        </MenuItem>
+
+        <MenuItem Grid.Row="3" Header="Клиенты" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F"   Click="Client_but" FontSize="18" FontWeight="Bold">
+            <MenuItem.Icon>
+                <Image Source="Icons/client.png"/>
+            </MenuItem.Icon>
+        </MenuItem>
+
+        <MenuItem Grid.Row="4" Header="Издательства" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold">
+            <MenuItem.Icon>
+                <Image Source="Icons/publisher.png"/>
+            </MenuItem.Icon>
+        </MenuItem>
+
+        <MenuItem Grid.Row="5" Header="Товары" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold">
+            <MenuItem.Icon>
+                <Image Source="Icons/books.png"/>
+            </MenuItem.Icon>
+        </MenuItem>
+
+        <MenuItem Grid.Row="6" Header="Заказы" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold">
+            <MenuItem.Icon>
+                <Image Source="Icons/order.png"/>
+            </MenuItem.Icon>
+        </MenuItem>
+
+        <MenuItem Grid.Row="7" Header="Возвраты" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold">
+            <MenuItem.Icon>
+                <Image Source="Icons/return.png"/>
+            </MenuItem.Icon>
+        </MenuItem>
     </Grid>
 </Page>

@@ -18,7 +18,6 @@ namespace InternetBookShop
         public Product()
         {
             this.Favourities = new HashSet<Favourities>();
-            this.Products_in_order = new HashSet<Products_in_order>();
         }
     
         public int product_id { get; set; }
@@ -41,7 +40,5 @@ namespace InternetBookShop
         public virtual Publisher Publisher { get; set; }
         public virtual Review Review { get; set; }
         public virtual storage storage { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Products_in_order> Products_in_order { get; set; }
     }
 }

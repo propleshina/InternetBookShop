@@ -16,16 +16,17 @@ using System.Windows.Shapes;
 namespace InternetBookShop
 {
     /// <summary>
-    /// Логика взаимодействия для Clients.xaml
+    /// Логика взаимодействия для book.xaml
     /// </summary>
-    public partial class Clients : Page
+    public partial class book : Page
     {
-        public Clients()
+        public book()
         {
-
             InitializeComponent();
-            ClientData.ItemsSource = InternetBookShop_KyrcahEntities.GetContext().Client.ToList();
+            BookData.ItemsSource = InternetBookShop_KyrcahEntities.GetContext().Product.ToList();
+            
         }
+
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
@@ -34,10 +35,10 @@ namespace InternetBookShop
 
         private void RedactButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Convert.ToString(RedactButton.Content)=="Редактировать")
+            if (Convert.ToString(RedactButton.Content) == "Редактировать")
             {
                 RedactButton.Content = "Выйти из режима редактирования";
-                ClientData.IsReadOnly = false;
+                BookData.IsReadOnly = false;
                 DeleteButton.Visibility = Visibility.Visible;
                 DeleteButton.IsEnabled = true;
 
@@ -46,27 +47,27 @@ namespace InternetBookShop
             }
             else
             {
-                RedactButton.Content= "Редактировать";
+                RedactButton.Content = "Редактировать";
                 DeleteButton.Visibility = Visibility.Hidden;
                 DeleteButton.IsEnabled = false;
                 SaveButton.Visibility = Visibility.Hidden;
                 SaveButton.IsEnabled = false;
-                ClientData.IsReadOnly = true;
+                BookData.IsReadOnly = true;
             }
 
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            var row = ClientData.SelectedItems.Cast<Client>().ToList();
-            InternetBookShop_KyrcahEntities.GetContext().Client.RemoveRange(row);
+            var row = BookData.SelectedItems.Cast<Product>().ToList();
+            InternetBookShop_KyrcahEntities.GetContext().Product.RemoveRange(row);
             InternetBookShop_KyrcahEntities.GetContext().SaveChanges();
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            var row = ClientData.SelectedItems.Cast<Client>().ToList();
-            InternetBookShop_KyrcahEntities.GetContext().Client.AddRange(row);
+            var row = BookData.SelectedItems.Cast<Product>().ToList();
+            InternetBookShop_KyrcahEntities.GetContext().Product.AddRange(row);
             InternetBookShop_KyrcahEntities.GetContext().SaveChanges();
         }
 
@@ -74,15 +75,14 @@ namespace InternetBookShop
         {
             NavigationService.Navigate(new Workers());
         }
+        private void Client_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Clients());
+        }
 
         private void Publisher_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new publishers());
-        }
-
-        private void Book_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new book());
         }
 
         private void Order_Click(object sender, RoutedEventArgs e)

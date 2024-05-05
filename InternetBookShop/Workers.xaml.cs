@@ -16,15 +16,14 @@ using System.Windows.Shapes;
 namespace InternetBookShop
 {
     /// <summary>
-    /// Логика взаимодействия для Clients.xaml
+    /// Логика взаимодействия для Workers.xaml
     /// </summary>
-    public partial class Clients : Page
+    public partial class Workers : Page
     {
-        public Clients()
+        public Workers()
         {
-
             InitializeComponent();
-            ClientData.ItemsSource = InternetBookShop_KyrcahEntities.GetContext().Client.ToList();
+            WorkerData.ItemsSource = InternetBookShop_KyrcahEntities.GetContext().workers.ToList();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -34,10 +33,10 @@ namespace InternetBookShop
 
         private void RedactButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Convert.ToString(RedactButton.Content)=="Редактировать")
+            if (Convert.ToString(RedactButton.Content) == "Редактировать")
             {
                 RedactButton.Content = "Выйти из режима редактирования";
-                ClientData.IsReadOnly = false;
+                WorkerData.IsReadOnly = false;
                 DeleteButton.Visibility = Visibility.Visible;
                 DeleteButton.IsEnabled = true;
 
@@ -46,35 +45,34 @@ namespace InternetBookShop
             }
             else
             {
-                RedactButton.Content= "Редактировать";
+                RedactButton.Content = "Редактировать";
                 DeleteButton.Visibility = Visibility.Hidden;
                 DeleteButton.IsEnabled = false;
                 SaveButton.Visibility = Visibility.Hidden;
                 SaveButton.IsEnabled = false;
-                ClientData.IsReadOnly = true;
+                WorkerData.IsReadOnly = true;
             }
 
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            var row = ClientData.SelectedItems.Cast<Client>().ToList();
-            InternetBookShop_KyrcahEntities.GetContext().Client.RemoveRange(row);
+            var row = WorkerData.SelectedItems.Cast<workers>().ToList();
+            InternetBookShop_KyrcahEntities.GetContext().workers.RemoveRange(row);
             InternetBookShop_KyrcahEntities.GetContext().SaveChanges();
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            var row = ClientData.SelectedItems.Cast<Client>().ToList();
-            InternetBookShop_KyrcahEntities.GetContext().Client.AddRange(row);
+            var row = WorkerData.SelectedItems.Cast<workers>().ToList();
+            InternetBookShop_KyrcahEntities.GetContext().workers.AddRange(row);
             InternetBookShop_KyrcahEntities.GetContext().SaveChanges();
         }
 
-        private void Worker_Click(object sender, RoutedEventArgs e)
+        private void Client_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Workers());
+            NavigationService.Navigate(new Clients());
         }
-
         private void Publisher_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new publishers());

@@ -30,9 +30,41 @@ namespace InternetBookShop
             NavigationService.Navigate(new Clients());
         }
 
+        private void Workers_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Workers());
+        }
+
+        private void Publisher_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new publishers());
+        }
+        private void Book_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new book());
+        }
+        private void Order_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new order());
+        }
+        private void Return_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Return());
+        }
+
+        private void sign_out_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Page1());
+        }
+
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new report1());
+        }
 
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new report2());
         }
     }
 }

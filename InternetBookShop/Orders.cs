@@ -18,6 +18,7 @@ namespace InternetBookShop
         public Orders()
         {
             this.returns = new HashSet<returns>();
+            this.workers = new HashSet<workers>();
         }
     
         public int order_id { get; set; }
@@ -34,5 +35,7 @@ namespace InternetBookShop
         public virtual payment payment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<returns> returns { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<workers> workers { get; set; }
     }
 }

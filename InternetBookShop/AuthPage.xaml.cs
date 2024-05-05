@@ -14,18 +14,22 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 
+
 namespace InternetBookShop
 {
     /// <summary>
     /// Логика взаимодействия для Page1.xaml
     /// </summary>
+
+
     public partial class Page1 : Page
     {
+        bool isadminn = false;
         public Page1()
         {
             InitializeComponent();
         }
-
+        public System.Windows.ResizeMode NoResize { get; set; }
         private void ButtonAuth_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(loginBox.Text) && string.IsNullOrEmpty(passwordBox.Password))
@@ -52,12 +56,14 @@ namespace InternetBookShop
                     }
                     else
                     {
+                        if (loginBox.Text == "admin")
+                        {
+                            isadminn = true;
+                        }
                         MessageBox.Show($"Здравствуйте, {user.name} {user.patronymic}!");
                         loginBox.Clear();
                         passwordBox.Clear();
                         NavigationService.Navigate(new BD());
-
-
                     }
                 }
             }

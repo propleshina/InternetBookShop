@@ -22,9 +22,7 @@ namespace InternetBookShop
     
         public int products_in_order_id { get; set; }
         public Nullable<int> counting { get; set; }
-        public Nullable<int> productID { get; set; }
     
-        public virtual Product Product { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<shopping_cart> shopping_cart { get; set; }
     }

@@ -19,10 +19,12 @@ namespace InternetBookShop
         public string surname { get; set; }
         public string patronymic { get; set; }
         public string gender { get; set; }
-        public Nullable<int> jobID { get; set; }
         public string login { get; set; }
         public string password { get; set; }
+        public Nullable<int> jobID { get; set; }
+        public Nullable<int> orderID { get; set; }
     
         public virtual jobs jobs { get; set; }
+        public virtual Orders Orders { get; set; }
     }
 }

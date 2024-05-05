@@ -1,16 +1,40 @@
 ﻿<Page x:Class="InternetBookShop.Page1"
+      
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      
       xmlns:local="clr-namespace:InternetBookShop"
       mc:Ignorable="d" 
+      
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Page1">
+      Title="Page1"
+      Width="800"
+      Height="490"
+      Background="#FFDA964C" WindowWidth="800" WindowHeight="490" MaxWidth="800" MaxHeight="491" IsManipulationEnabled="True" 
+      ShowsNavigationUI="False"
+      >
+    
+    <Grid Background="#FFDA964C" Grid.IsSharedSizeScope="False" Cursor="Pen">
 
-    <Grid>
-        <TextBox x:Name="loginBox" HorizontalAlignment="Left" Height="43" Margin="511,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" />
-        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="513,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="175" Height="39">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="115"/>
+            <RowDefinition Height="46"/>
+            <RowDefinition Height="179"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="430"></ColumnDefinition>
+            <ColumnDefinition Width="87"></ColumnDefinition>
+            <ColumnDefinition Width="178"></ColumnDefinition>
+            <ColumnDefinition Width="82"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+
+        <TextBox x:Name="loginBox" HorizontalAlignment="Left" Height="28" Margin="5,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="5,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="176" Height="26" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2">
             <PasswordBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -20,11 +44,15 @@
                 </TransformGroup>
             </PasswordBox.RenderTransform>
         </PasswordBox>
-        <Button Content="Войти" HorizontalAlignment="Left" Margin="538,293,0,0" VerticalAlignment="Top" Width="129" Height="37" FontWeight="Bold" FontSize="18" Background="#FFF7F3C4" Click="ButtonAuth_Click"/>
-        <Image Margin="0,0,369,0" Source="01aec6b03f32b47fbd28689827faca2f (1).jpg" Stretch="Fill"/>
-        <Image Margin="538,6,143,300" Source="Image1.png" Stretch="Fill"/>
-        <Label Content="Логин" HorizontalAlignment="Left" Margin="522,109,0,0" VerticalAlignment="Top"/>
-        <Label Content="Пароль" HorizontalAlignment="Left" Margin="515,188,0,0" VerticalAlignment="Top"/>
+        <Grid
+            Margin="0,0,0,14" Grid.Row="1" Grid.Column="2">
+            <Image Source="Icons/owl_logo.png" Width="122" HorizontalAlignment="Center" Margin="0,-31,0,10"/>
+        </Grid>
+        <Image Source="01aec6b03f32b47fbd28689827faca2f (1).jpg" Stretch="Fill" Grid.RowSpan="4"/>
+        <Button Content="Войти" HorizontalAlignment="Center" Margin="0,89,0,0" VerticalAlignment="Top" Width="130" Height="38" FontWeight="Bold" FontSize="18" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" Click="ButtonAuth_Click" Grid.Column="2" Grid.Row="3"/>
+
+        <Label Grid.Column="2" Content="Пароль" HorizontalAlignment="Left" Margin="5,10,0,0" Grid.Row="3" VerticalAlignment="Top" Height="27" Width="53" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontWeight="Bold"/>
+        <Label Grid.Column="2" Content="Логин" HorizontalAlignment="Left" Margin="5,107,0,0" Grid.Row="1" VerticalAlignment="Top" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" Grid.RowSpan="2" FontWeight="Bold"/>
 
     </Grid>
 </Page>

@@ -21,7 +21,7 @@ namespace InternetBookShop
             : base("name=InternetBookShop_KyrcahEntities")
         {
         }
-    
+
         public static InternetBookShop_KyrcahEntities GetContext()
         {
             if (_context == null)
@@ -33,7 +33,7 @@ namespace InternetBookShop
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<addresses> addresses { get; set; }
         public virtual DbSet<Author> Author { get; set; }
         public virtual DbSet<Category> Category { get; set; }

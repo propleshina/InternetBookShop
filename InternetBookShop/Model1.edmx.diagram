@@ -4,47 +4,47 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="430ea66dc08842b58e25547fcc774ee9" Name="Diagram1">
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.addresses" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Author" Width="1.5" PointX="5.75" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Category" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Client" Width="1.5" PointX="5.25" PointY="24.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Coupons" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Discounts" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Favourities" Width="1.5" PointX="10.25" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Genre" Width="1.5" PointX="5.75" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.jobs" Width="1.5" PointX="7.75" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.order_status" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Orders" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.payment" Width="1.5" PointX="5.25" PointY="28.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Product" Width="1.5" PointX="8" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Products_in_order" Width="1.5" PointX="10.25" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Publisher" Width="1.5" PointX="5.75" PointY="16.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.returns" Width="1.5" PointX="9.75" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Review" Width="1.5" PointX="5.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.shopping_cart" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.storage" Width="1.5" PointX="5.75" PointY="21.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.workers" Width="1.5" PointX="10" PointY="12" IsExpanded="true" />
-        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Orders__addressI__5070F446" ManuallyRouted="false" />
+      <Diagram DiagramId="a0d6c90a248842158af4416601473ab2" Name="Diagram1">
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.addresses" Width="1.5" PointX="8.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Author" Width="1.5" PointX="5.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Category" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Client" Width="1.5" PointX="8.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Coupons" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Discounts" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Favourities" Width="1.5" PointX="10.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Genre" Width="1.5" PointX="5.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.jobs" Width="1.5" PointX="13.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.order_status" Width="1.5" PointX="8.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Orders" Width="1.5" PointX="10.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.payment" Width="1.5" PointX="8.25" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Product" Width="1.5" PointX="8" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Products_in_order" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Publisher" Width="1.5" PointX="5.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.returns" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Review" Width="1.5" PointX="5.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.shopping_cart" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.storage" Width="1.5" PointX="5.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.workers" Width="1.5" PointX="15.75" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Orders__addressI__4F7CD00D" ManuallyRouted="false" />
         <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Product__authorI__33D4B598" ManuallyRouted="false" />
-        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Coupons__categor__412EB0B6" ManuallyRouted="false" />
-        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Discounts__categ__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Coupons__categor__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Discounts__categ__3D5E1FD2" ManuallyRouted="false" />
         <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Product__categor__31EC6D26" ManuallyRouted="false" />
-        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Orders__client_i__4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__shopping___coupo__45F365D3" ManuallyRouted="false" />
-        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__shopping___disco__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Orders__client_i__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__shopping___coupo__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__shopping___disco__440B1D61" ManuallyRouted="false" />
         <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Favouriti__produ__5AEE82B9" ManuallyRouted="false" />
         <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Product__genreID__36B12243" ManuallyRouted="false" />
-        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__workers__jobID__5812160E" ManuallyRouted="false" />
-        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Orders__ordersta__52593CB8" ManuallyRouted="false" />
-        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Orders__cartID__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Orders__paymentI__5165187F" ManuallyRouted="false" />
-        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__returns__orderID__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__workers__jobID__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Orders__ordersta__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Orders__cartID__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Orders__paymentI__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__returns__orderID__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__workers__orderID__5812160E" ManuallyRouted="false" />
         <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Product__publish__32E0915F" ManuallyRouted="false" />
         <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Product__reviewI__34C8D9D1" ManuallyRouted="false" />
         <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Product__storage__35BCFE0A" ManuallyRouted="false" />
-        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Products___produ__3B75D760" ManuallyRouted="false" />
-        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__shopping___produ__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__shopping___produ__4316F928" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

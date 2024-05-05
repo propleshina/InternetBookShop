@@ -6,9 +6,10 @@
       xmlns:local="clr-namespace:InternetBookShop"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Clients">
+      Title="Clients"
+            ShowsNavigationUI="False">
 
-    <Grid Background="#FFDA964C">
+    <Grid Background="#FFDA964C" Cursor="Pen">
 
         <Grid.RowDefinitions>
 
@@ -36,7 +37,7 @@
             <Image Source="Icons/owl_logo.png" Height="100" Width="100" HorizontalAlignment="Left" Margin="40,-30,30,0"/>
         </Grid>
 
-        <MenuItem Grid.Row="2" Header="Сотрудники" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold">
+        <MenuItem Grid.Row="2" Header="Сотрудники" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold" Click="Worker_Click">
             <MenuItem.Icon>
                 <Image Source="Icons/worker.png"/>
             </MenuItem.Icon>
@@ -48,36 +49,37 @@
             </MenuItem.Icon>
         </MenuItem>
 
-        <MenuItem Grid.Row="4" Header="Издательства" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold">
+        <MenuItem Grid.Row="4" Header="Издательства" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold" Click="Publisher_Click">
             <MenuItem.Icon>
                 <Image Source="Icons/publisher.png"/>
             </MenuItem.Icon>
         </MenuItem>
 
-        <MenuItem Grid.Row="5" Header="Товары" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold">
+        <MenuItem Grid.Row="5" Header="Товары" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold" Click="Book_Click">
             <MenuItem.Icon>
                 <Image Source="Icons/books.png"/>
             </MenuItem.Icon>
         </MenuItem>
 
-        <MenuItem Grid.Row="6" Header="Заказы" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold">
+        <MenuItem Grid.Row="6" Header="Заказы" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold" Click="Order_Click">
             <MenuItem.Icon>
                 <Image Source="Icons/order.png"/>
             </MenuItem.Icon>
         </MenuItem>
 
-        <MenuItem Grid.Row="7" Header="Возвраты" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold">
+        <MenuItem Grid.Row="7" Header="Возвраты" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold" Click="Return_Click">
             <MenuItem.Icon>
                 <Image Source="Icons/return.png"/>
             </MenuItem.Icon>
         </MenuItem>
 
-        <DataGrid x:Name="ClientData" HorizontalAlignment="Left" Height="318" Margin="28,0,0,0" VerticalAlignment="Top" Width="523" Grid.ColumnSpan="3" Grid.Column="1" Grid.RowSpan="5" Grid.Row="1" >
+        <DataGrid x:Name="ClientData" HorizontalAlignment="Left" Height="275" Margin="28,43,0,0" VerticalAlignment="Top" Width="523" Grid.ColumnSpan="3" Grid.Column="1" Grid.RowSpan="5" Grid.Row="1" >
         </DataGrid>
         <Button x:Name="RedactButton" Content="Редактировать" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" Width="242" Height="42" Click="RedactButton_Click" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="6"/>
         <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="46,10,0,0" VerticalAlignment="Top" Width="113" Height="42" Click="BackButton_Click" Grid.Column="3" Grid.Row="6"/>
         <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="28,1,0,0" VerticalAlignment="Top" Width="116" Height="42" Click="DeleteButton_Click" Visibility="Hidden" Grid.Column="1" Grid.Row="7" />
         <Button x:Name="SaveButton" Content="Сохранить" HorizontalAlignment="Left" Margin="149,1,0,0" VerticalAlignment="Top" Width="121" Height="42" Click="SaveButton_Click" Visibility="Hidden" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="7" />
+        <Button Content="Выйти" HorizontalAlignment="Left" Margin="58,0,0,0" VerticalAlignment="Top" Width="130" Height="38" FontWeight="Bold" FontSize="18" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" Grid.Column="3" Grid.Row="1" Click="sign_out_Click"/>
     </Grid>
 </Page>
 

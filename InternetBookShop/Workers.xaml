@@ -34,7 +34,7 @@
 
         <Grid
             Margin="0,0,0,30" Grid.Row="1" Grid.RowSpan="2">
-            <Image Source="Icons/owl_logo.png" Height="100" Width="100" HorizontalAlignment="Left" Margin="40,-30,30,0"/>
+            <Image Source="Icons/owl_logo.png" Height="100" Width="100" HorizontalAlignment="Left" Margin="53,0,0,27"/>
         </Grid>
 
         <MenuItem Grid.Row="2" Header="Сотрудники" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold">
@@ -73,7 +73,7 @@
             </MenuItem.Icon>
         </MenuItem>
 
-        <DataGrid x:Name="WorkerData" HorizontalAlignment="Left" Height="275" Margin="28,43,0,0" VerticalAlignment="Top" Width="523" Grid.ColumnSpan="3" Grid.Column="1" Grid.RowSpan="5" Grid.Row="1" >
+        <DataGrid x:Name="WorkerData" HorizontalAlignment="Left" Height="275" Margin="28,43,0,0" VerticalAlignment="Top" Width="523" Grid.ColumnSpan="3" Grid.Column="1" Grid.RowSpan="5" Grid.Row="1" Background="#FF91E2C2" >
         </DataGrid>
         <Button x:Name="RedactButton" Content="Редактировать" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" Width="242" Height="42" Click="RedactButton_Click" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="6"/>
         <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="46,10,0,0" VerticalAlignment="Top" Width="113" Height="42" Click="BackButton_Click" Grid.Column="3" Grid.Row="6"/>

@@ -35,7 +35,7 @@
 
         <Grid
             Margin="0,0,0,30" Grid.Row="1" Grid.RowSpan="2">
-            <Image Source="Icons/owl_logo.png" Height="100" Width="100" HorizontalAlignment="Left" Margin="40,-30,30,0"/>
+            <Image Source="Icons/owl_logo.png" Height="100" Width="100" HorizontalAlignment="Left" Margin="53,0,0,27"/>
         </Grid>
 
         <MenuItem Grid.Row="2" Header="Сотрудники" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" Click="Workers_Click" FontSize="18" FontWeight="Bold">

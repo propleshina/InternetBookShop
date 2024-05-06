@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace InternetBookShop
 {
@@ -24,6 +25,17 @@ namespace InternetBookShop
         {
             InitializeComponent();
             PublisherData.ItemsSource = InternetBookShop_KyrcahEntities.GetContext().Publisher.ToList();
+
+            string fullpath = "C:\\Users\\217047\\Source\\Repos\\propleshina\\InternetBookShop\\InternetBookShop\\IsAdmin.txt";
+            string filecontent = File.ReadAllText(fullpath);
+            if (filecontent.Trim().ToLower() == "false")
+            {
+                RedactButton.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                RedactButton.Visibility = Visibility.Visible;
+            }
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -96,6 +108,10 @@ namespace InternetBookShop
 
         private void sign_out_Click(object sender, RoutedEventArgs e)
         {
+            string fullpath = "C:\\Users\\217047\\Source\\Repos\\propleshina\\InternetBookShop\\InternetBookShop\\IsAdmin.txt";
+
+            File.WriteAllText(fullpath, string.Empty);
+            File.WriteAllText(fullpath, "false");
             NavigationService.Navigate(new Page1());
         }
     }

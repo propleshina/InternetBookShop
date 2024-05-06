@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 
 
@@ -24,10 +25,14 @@ namespace InternetBookShop
 
     public partial class Page1 : Page
     {
-        bool isadminn = false;
         public Page1()
         {
             InitializeComponent();
+
+            string fullpath = "C:\\Users\\217047\\Source\\Repos\\propleshina\\InternetBookShop\\InternetBookShop\\IsAdmin.txt";
+
+            File.WriteAllText(fullpath, string.Empty);
+            File.WriteAllText(fullpath, "false");
         }
         public System.Windows.ResizeMode NoResize { get; set; }
         private void ButtonAuth_Click(object sender, RoutedEventArgs e)
@@ -58,7 +63,10 @@ namespace InternetBookShop
                     {
                         if (loginBox.Text == "admin")
                         {
-                            isadminn = true;
+                            string fullpath = "C:\\Users\\217047\\Source\\Repos\\propleshina\\InternetBookShop\\InternetBookShop\\IsAdmin.txt";
+
+                            File.WriteAllText(fullpath, string.Empty);
+                            File.WriteAllText(fullpath, "true");
                         }
                         MessageBox.Show($"Здравствуйте, {user.name} {user.patronymic}!");
                         loginBox.Clear();

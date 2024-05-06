@@ -128,6 +128,7 @@
           </Key>
           <Property Name="products_in_order_id" Type="int" Nullable="false" />
           <Property Name="counting" Type="int" />
+          <Property Name="productID" Type="int" />
         </EntityType>
         <EntityType Name="Publisher">
           <Key>
@@ -178,12 +179,11 @@
           <Property Name="surname" Type="varchar" MaxLength="70" />
           <Property Name="patronymic" Type="varchar" MaxLength="70" />
           <Property Name="gender" Type="varchar" MaxLength="1" />
-          <Property Name="login" Type="varchar" MaxLength="70" />
-          <Property Name="password" Type="varchar" MaxLength="70" />
           <Property Name="jobID" Type="int" />
-          <Property Name="orderID" Type="int" />
+          <Property Name="login" Type="varchar" MaxLength="20" />
+          <Property Name="password" Type="varchar" MaxLength="20" />
         </EntityType>
-        <Association Name="FK__Coupons__categor__403A8C7D">
+        <Association Name="FK__Coupons__categor__412EB0B6">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
           <End Role="Coupons" Type="Self.Coupons" Multiplicity="*" />
           <ReferentialConstraint>
@@ -195,7 +195,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Discounts__categ__3D5E1FD2">
+        <Association Name="FK__Discounts__categ__3E52440B">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
           <End Role="Discounts" Type="Self.Discounts" Multiplicity="*" />
           <ReferentialConstraint>
@@ -219,7 +219,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__addressI__4F7CD00D">
+        <Association Name="FK__Orders__addressI__5070F446">
           <End Role="addresses" Type="Self.addresses" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -231,7 +231,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__cartID__4E88ABD4">
+        <Association Name="FK__Orders__cartID__4F7CD00D">
           <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -243,7 +243,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__client_i__4D94879B">
+        <Association Name="FK__Orders__client_i__4E88ABD4">
           <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -255,7 +255,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__ordersta__5165187F">
+        <Association Name="FK__Orders__ordersta__52593CB8">
           <End Role="order_status" Type="Self.order_status" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -267,7 +267,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__paymentI__5070F446">
+        <Association Name="FK__Orders__paymentI__5165187F">
           <End Role="payment" Type="Self.payment" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -351,7 +351,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__returns__orderID__5441852A">
+        <Association Name="FK__Products___produ__3B75D760">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Products_in_order" Type="Self.Products_in_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="Products_in_order">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__returns__orderID__5535A963">
           <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
           <End Role="returns" Type="Self.returns" Multiplicity="*" />
           <ReferentialConstraint>
@@ -363,7 +375,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__shopping___coupo__44FF419A">
+        <Association Name="FK__shopping___coupo__45F365D3">
           <End Role="Coupons" Type="Self.Coupons" Multiplicity="0..1" />
           <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="*" />
           <ReferentialConstraint>
@@ -375,7 +387,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__shopping___disco__440B1D61">
+        <Association Name="FK__shopping___disco__44FF419A">
           <End Role="Discounts" Type="Self.Discounts" Multiplicity="0..1" />
           <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="*" />
           <ReferentialConstraint>
@@ -387,7 +399,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__shopping___produ__4316F928">
+        <Association Name="FK__shopping___produ__440B1D61">
           <End Role="Products_in_order" Type="Self.Products_in_order" Multiplicity="0..1" />
           <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="*" />
           <ReferentialConstraint>
@@ -399,7 +411,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__workers__jobID__571DF1D5">
+        <Association Name="FK__workers__jobID__5812160E">
           <End Role="jobs" Type="Self.jobs" Multiplicity="0..1" />
           <End Role="workers" Type="Self.workers" Multiplicity="*" />
           <ReferentialConstraint>
@@ -408,18 +420,6 @@
             </Principal>
             <Dependent Role="workers">
               <PropertyRef Name="jobID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__workers__orderID__5812160E">
-          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
-          <End Role="workers" Type="Self.workers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Orders">
-              <PropertyRef Name="order_id" />
-            </Principal>
-            <Dependent Role="workers">
-              <PropertyRef Name="orderID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -444,11 +444,11 @@
           <EntitySet Name="shopping_cart" EntityType="Self.shopping_cart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="storage" EntityType="Self.storage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="workers" EntityType="Self.workers" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Coupons__categor__403A8C7D" Association="Self.FK__Coupons__categor__403A8C7D">
+          <AssociationSet Name="FK__Coupons__categor__412EB0B6" Association="Self.FK__Coupons__categor__412EB0B6">
             <End Role="Category" EntitySet="Category" />
             <End Role="Coupons" EntitySet="Coupons" />
           </AssociationSet>
-          <AssociationSet Name="FK__Discounts__categ__3D5E1FD2" Association="Self.FK__Discounts__categ__3D5E1FD2">
+          <AssociationSet Name="FK__Discounts__categ__3E52440B" Association="Self.FK__Discounts__categ__3E52440B">
             <End Role="Category" EntitySet="Category" />
             <End Role="Discounts" EntitySet="Discounts" />
           </AssociationSet>
@@ -456,23 +456,23 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="Favourities" EntitySet="Favourities" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__addressI__4F7CD00D" Association="Self.FK__Orders__addressI__4F7CD00D">
+          <AssociationSet Name="FK__Orders__addressI__5070F446" Association="Self.FK__Orders__addressI__5070F446">
             <End Role="addresses" EntitySet="addresses" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__cartID__4E88ABD4" Association="Self.FK__Orders__cartID__4E88ABD4">
+          <AssociationSet Name="FK__Orders__cartID__4F7CD00D" Association="Self.FK__Orders__cartID__4F7CD00D">
             <End Role="shopping_cart" EntitySet="shopping_cart" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__client_i__4D94879B" Association="Self.FK__Orders__client_i__4D94879B">
+          <AssociationSet Name="FK__Orders__client_i__4E88ABD4" Association="Self.FK__Orders__client_i__4E88ABD4">
             <End Role="Client" EntitySet="Client" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__ordersta__5165187F" Association="Self.FK__Orders__ordersta__5165187F">
+          <AssociationSet Name="FK__Orders__ordersta__52593CB8" Association="Self.FK__Orders__ordersta__52593CB8">
             <End Role="order_status" EntitySet="order_status" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__paymentI__5070F446" Association="Self.FK__Orders__paymentI__5070F446">
+          <AssociationSet Name="FK__Orders__paymentI__5165187F" Association="Self.FK__Orders__paymentI__5165187F">
             <End Role="payment" EntitySet="payment" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
@@ -500,28 +500,28 @@
             <End Role="storage" EntitySet="storage" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK__returns__orderID__5441852A" Association="Self.FK__returns__orderID__5441852A">
+          <AssociationSet Name="FK__Products___produ__3B75D760" Association="Self.FK__Products___produ__3B75D760">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Products_in_order" EntitySet="Products_in_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__returns__orderID__5535A963" Association="Self.FK__returns__orderID__5535A963">
             <End Role="Orders" EntitySet="Orders" />
             <End Role="returns" EntitySet="returns" />
           </AssociationSet>
-          <AssociationSet Name="FK__shopping___coupo__44FF419A" Association="Self.FK__shopping___coupo__44FF419A">
+          <AssociationSet Name="FK__shopping___coupo__45F365D3" Association="Self.FK__shopping___coupo__45F365D3">
             <End Role="Coupons" EntitySet="Coupons" />
             <End Role="shopping_cart" EntitySet="shopping_cart" />
           </AssociationSet>
-          <AssociationSet Name="FK__shopping___disco__440B1D61" Association="Self.FK__shopping___disco__440B1D61">
+          <AssociationSet Name="FK__shopping___disco__44FF419A" Association="Self.FK__shopping___disco__44FF419A">
             <End Role="Discounts" EntitySet="Discounts" />
             <End Role="shopping_cart" EntitySet="shopping_cart" />
           </AssociationSet>
-          <AssociationSet Name="FK__shopping___produ__4316F928" Association="Self.FK__shopping___produ__4316F928">
+          <AssociationSet Name="FK__shopping___produ__440B1D61" Association="Self.FK__shopping___produ__440B1D61">
             <End Role="Products_in_order" EntitySet="Products_in_order" />
             <End Role="shopping_cart" EntitySet="shopping_cart" />
           </AssociationSet>
-          <AssociationSet Name="FK__workers__jobID__571DF1D5" Association="Self.FK__workers__jobID__571DF1D5">
+          <AssociationSet Name="FK__workers__jobID__5812160E" Association="Self.FK__workers__jobID__5812160E">
             <End Role="jobs" EntitySet="jobs" />
-            <End Role="workers" EntitySet="workers" />
-          </AssociationSet>
-          <AssociationSet Name="FK__workers__orderID__5812160E" Association="Self.FK__workers__orderID__5812160E">
-            <End Role="Orders" EntitySet="Orders" />
             <End Role="workers" EntitySet="workers" />
           </AssociationSet>
         </EntityContainer>
@@ -540,7 +540,7 @@
           <Property Name="post_index" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
           <Property Name="building_number" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
           <Property Name="door_number" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__addressI__4F7CD00D" FromRole="addresses" ToRole="Orders" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__addressI__5070F446" FromRole="addresses" ToRole="Orders" />
         </EntityType>
         <EntityType Name="Author">
           <Key>
@@ -558,8 +558,8 @@
           </Key>
           <Property Name="category_id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Coupons" Relationship="Self.FK__Coupons__categor__403A8C7D" FromRole="Category" ToRole="Coupons" />
-          <NavigationProperty Name="Discounts" Relationship="Self.FK__Discounts__categ__3D5E1FD2" FromRole="Category" ToRole="Discounts" />
+          <NavigationProperty Name="Coupons" Relationship="Self.FK__Coupons__categor__412EB0B6" FromRole="Category" ToRole="Coupons" />
+          <NavigationProperty Name="Discounts" Relationship="Self.FK__Discounts__categ__3E52440B" FromRole="Category" ToRole="Discounts" />
           <NavigationProperty Name="Product" Relationship="Self.FK__Product__categor__31EC6D26" FromRole="Category" ToRole="Product" />
         </EntityType>
         <EntityType Name="Client">
@@ -573,7 +573,7 @@
           <Property Name="email" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="phone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <Property Name="gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__client_i__4D94879B" FromRole="Client" ToRole="Orders" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__client_i__4E88ABD4" FromRole="Client" ToRole="Orders" />
         </EntityType>
         <EntityType Name="Coupons">
           <Key>
@@ -582,8 +582,8 @@
           <Property Name="coupon_id" Type="Int32" Nullable="false" />
           <Property Name="size" Type="Int32" />
           <Property Name="categoryID" Type="Int32" />
-          <NavigationProperty Name="Category" Relationship="Self.FK__Coupons__categor__403A8C7D" FromRole="Coupons" ToRole="Category" />
-          <NavigationProperty Name="shopping_cart" Relationship="Self.FK__shopping___coupo__44FF419A" FromRole="Coupons" ToRole="shopping_cart" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Coupons__categor__412EB0B6" FromRole="Coupons" ToRole="Category" />
+          <NavigationProperty Name="shopping_cart" Relationship="Self.FK__shopping___coupo__45F365D3" FromRole="Coupons" ToRole="shopping_cart" />
         </EntityType>
         <EntityType Name="Discounts">
           <Key>
@@ -592,8 +592,8 @@
           <Property Name="discount_id" Type="Int32" Nullable="false" />
           <Property Name="size" Type="Int32" />
           <Property Name="categoryID" Type="Int32" />
-          <NavigationProperty Name="Category" Relationship="Self.FK__Discounts__categ__3D5E1FD2" FromRole="Discounts" ToRole="Category" />
-          <NavigationProperty Name="shopping_cart" Relationship="Self.FK__shopping___disco__440B1D61" FromRole="Discounts" ToRole="shopping_cart" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Discounts__categ__3E52440B" FromRole="Discounts" ToRole="Category" />
+          <NavigationProperty Name="shopping_cart" Relationship="Self.FK__shopping___disco__44FF419A" FromRole="Discounts" ToRole="shopping_cart" />
         </EntityType>
         <EntityType Name="Favourities">
           <Key>
@@ -617,7 +617,7 @@
           </Key>
           <Property Name="job_id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="workers" Relationship="Self.FK__workers__jobID__571DF1D5" FromRole="jobs" ToRole="workers" />
+          <NavigationProperty Name="workers" Relationship="Self.FK__workers__jobID__5812160E" FromRole="jobs" ToRole="workers" />
         </EntityType>
         <EntityType Name="order_status">
           <Key>
@@ -625,7 +625,7 @@
           </Key>
           <Property Name="status_id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__ordersta__5165187F" FromRole="order_status" ToRole="Orders" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__ordersta__52593CB8" FromRole="order_status" ToRole="Orders" />
         </EntityType>
         <EntityType Name="Orders">
           <Key>
@@ -637,13 +637,12 @@
           <Property Name="addressID" Type="Int32" />
           <Property Name="paymentID" Type="Int32" />
           <Property Name="orderstatusID" Type="Int32" />
-          <NavigationProperty Name="addresses" Relationship="Self.FK__Orders__addressI__4F7CD00D" FromRole="Orders" ToRole="addresses" />
-          <NavigationProperty Name="Client" Relationship="Self.FK__Orders__client_i__4D94879B" FromRole="Orders" ToRole="Client" />
-          <NavigationProperty Name="order_status" Relationship="Self.FK__Orders__ordersta__5165187F" FromRole="Orders" ToRole="order_status" />
-          <NavigationProperty Name="shopping_cart" Relationship="Self.FK__Orders__cartID__4E88ABD4" FromRole="Orders" ToRole="shopping_cart" />
-          <NavigationProperty Name="payment" Relationship="Self.FK__Orders__paymentI__5070F446" FromRole="Orders" ToRole="payment" />
-          <NavigationProperty Name="returns" Relationship="Self.FK__returns__orderID__5441852A" FromRole="Orders" ToRole="returns" />
-          <NavigationProperty Name="workers" Relationship="Self.FK__workers__orderID__5812160E" FromRole="Orders" ToRole="workers" />
+          <NavigationProperty Name="addresses" Relationship="Self.FK__Orders__addressI__5070F446" FromRole="Orders" ToRole="addresses" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Orders__client_i__4E88ABD4" FromRole="Orders" ToRole="Client" />
+          <NavigationProperty Name="order_status" Relationship="Self.FK__Orders__ordersta__52593CB8" FromRole="Orders" ToRole="order_status" />
+          <NavigationProperty Name="shopping_cart" Relationship="Self.FK__Orders__cartID__4F7CD00D" FromRole="Orders" ToRole="shopping_cart" />
+          <NavigationProperty Name="payment" Relationship="Self.FK__Orders__paymentI__5165187F" FromRole="Orders" ToRole="payment" />
+          <NavigationProperty Name="returns" Relationship="Self.FK__returns__orderID__5535A963" FromRole="Orders" ToRole="returns" />
         </EntityType>
         <EntityType Name="payment">
           <Key>
@@ -651,7 +650,7 @@
           </Key>
           <Property Name="payment_id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__paymentI__5070F446" FromRole="payment" ToRole="Orders" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__paymentI__5165187F" FromRole="payment" ToRole="Orders" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -675,6 +674,7 @@
           <NavigationProperty Name="Publisher" Relationship="Self.FK__Product__publish__32E0915F" FromRole="Product" ToRole="Publisher" />
           <NavigationProperty Name="Review" Relationship="Self.FK__Product__reviewI__34C8D9D1" FromRole="Product" ToRole="Review" />
           <NavigationProperty Name="storage" Relationship="Self.FK__Product__storage__35BCFE0A" FromRole="Product" ToRole="storage" />
+          <NavigationProperty Name="Products_in_order" Relationship="Self.FK__Products___produ__3B75D760" FromRole="Product" ToRole="Products_in_order" />
         </EntityType>
         <EntityType Name="Products_in_order">
           <Key>
@@ -682,7 +682,9 @@
           </Key>
           <Property Name="products_in_order_id" Type="Int32" Nullable="false" />
           <Property Name="counting" Type="Int32" />
-          <NavigationProperty Name="shopping_cart" Relationship="Self.FK__shopping___produ__4316F928" FromRole="Products_in_order" ToRole="shopping_cart" />
+          <Property Name="productID" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Products___produ__3B75D760" FromRole="Products_in_order" ToRole="Product" />
+          <NavigationProperty Name="shopping_cart" Relationship="Self.FK__shopping___produ__440B1D61" FromRole="Products_in_order" ToRole="shopping_cart" />
         </EntityType>
         <EntityType Name="Publisher">
           <Key>
@@ -698,7 +700,7 @@
           </Key>
           <Property Name="return_id" Type="Int32" Nullable="false" />
           <Property Name="orderID" Type="Int32" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__returns__orderID__5441852A" FromRole="returns" ToRole="Orders" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__returns__orderID__5535A963" FromRole="returns" ToRole="Orders" />
         </EntityType>
         <EntityType Name="Review">
           <Key>
@@ -718,10 +720,10 @@
           <Property Name="products_in_orderID" Type="Int32" />
           <Property Name="discountID" Type="Int32" />
           <Property Name="couponID" Type="Int32" />
-          <NavigationProperty Name="Coupons" Relationship="Self.FK__shopping___coupo__44FF419A" FromRole="shopping_cart" ToRole="Coupons" />
-          <NavigationProperty Name="Discounts" Relationship="Self.FK__shopping___disco__440B1D61" FromRole="shopping_cart" ToRole="Discounts" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__cartID__4E88ABD4" FromRole="shopping_cart" ToRole="Orders" />
-          <NavigationProperty Name="Products_in_order" Relationship="Self.FK__shopping___produ__4316F928" FromRole="shopping_cart" ToRole="Products_in_order" />
+          <NavigationProperty Name="Coupons" Relationship="Self.FK__shopping___coupo__45F365D3" FromRole="shopping_cart" ToRole="Coupons" />
+          <NavigationProperty Name="Discounts" Relationship="Self.FK__shopping___disco__44FF419A" FromRole="shopping_cart" ToRole="Discounts" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__cartID__4F7CD00D" FromRole="shopping_cart" ToRole="Orders" />
+          <NavigationProperty Name="Products_in_order" Relationship="Self.FK__shopping___produ__440B1D61" FromRole="shopping_cart" ToRole="Products_in_order" />
         </EntityType>
         <EntityType Name="storage">
           <Key>
@@ -741,14 +743,12 @@
           <Property Name="surname" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="patronymic" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="login" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="jobID" Type="Int32" />
-          <Property Name="orderID" Type="Int32" />
-          <NavigationProperty Name="jobs" Relationship="Self.FK__workers__jobID__571DF1D5" FromRole="workers" ToRole="jobs" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__workers__orderID__5812160E" FromRole="workers" ToRole="Orders" />
+          <Property Name="login" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="jobs" Relationship="Self.FK__workers__jobID__5812160E" FromRole="workers" ToRole="jobs" />
         </EntityType>
-        <Association Name="FK__Orders__addressI__4F7CD00D">
+        <Association Name="FK__Orders__addressI__5070F446">
           <End Role="addresses" Type="Self.addresses" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -772,7 +772,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Coupons__categor__403A8C7D">
+        <Association Name="FK__Coupons__categor__412EB0B6">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
           <End Role="Coupons" Type="Self.Coupons" Multiplicity="*" />
           <ReferentialConstraint>
@@ -784,7 +784,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Discounts__categ__3D5E1FD2">
+        <Association Name="FK__Discounts__categ__3E52440B">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
           <End Role="Discounts" Type="Self.Discounts" Multiplicity="*" />
           <ReferentialConstraint>
@@ -808,7 +808,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__client_i__4D94879B">
+        <Association Name="FK__Orders__client_i__4E88ABD4">
           <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -820,7 +820,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__shopping___coupo__44FF419A">
+        <Association Name="FK__shopping___coupo__45F365D3">
           <End Role="Coupons" Type="Self.Coupons" Multiplicity="0..1" />
           <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="*" />
           <ReferentialConstraint>
@@ -832,7 +832,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__shopping___disco__440B1D61">
+        <Association Name="FK__shopping___disco__44FF419A">
           <End Role="Discounts" Type="Self.Discounts" Multiplicity="0..1" />
           <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="*" />
           <ReferentialConstraint>
@@ -868,7 +868,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__workers__jobID__571DF1D5">
+        <Association Name="FK__workers__jobID__5812160E">
           <End Role="jobs" Type="Self.jobs" Multiplicity="0..1" />
           <End Role="workers" Type="Self.workers" Multiplicity="*" />
           <ReferentialConstraint>
@@ -880,7 +880,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__ordersta__5165187F">
+        <Association Name="FK__Orders__ordersta__52593CB8">
           <End Role="order_status" Type="Self.order_status" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -892,7 +892,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__cartID__4E88ABD4">
+        <Association Name="FK__Orders__cartID__4F7CD00D">
           <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -904,7 +904,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__paymentI__5070F446">
+        <Association Name="FK__Orders__paymentI__5165187F">
           <End Role="payment" Type="Self.payment" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -916,7 +916,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__returns__orderID__5441852A">
+        <Association Name="FK__returns__orderID__5535A963">
           <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
           <End Role="returns" Type="Self.returns" Multiplicity="*" />
           <ReferentialConstraint>
@@ -924,18 +924,6 @@
               <PropertyRef Name="order_id" />
             </Principal>
             <Dependent Role="returns">
-              <PropertyRef Name="orderID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__workers__orderID__5812160E">
-          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
-          <End Role="workers" Type="Self.workers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Orders">
-              <PropertyRef Name="order_id" />
-            </Principal>
-            <Dependent Role="workers">
               <PropertyRef Name="orderID" />
             </Dependent>
           </ReferentialConstraint>
@@ -976,7 +964,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__shopping___produ__4316F928">
+        <Association Name="FK__Products___produ__3B75D760">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Products_in_order" Type="Self.Products_in_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="Products_in_order">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__shopping___produ__440B1D61">
           <End Role="Products_in_order" Type="Self.Products_in_order" Multiplicity="0..1" />
           <End Role="shopping_cart" Type="Self.shopping_cart" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1009,7 +1009,7 @@
           <EntitySet Name="shopping_cart" EntityType="Self.shopping_cart" />
           <EntitySet Name="storage" EntityType="Self.storage" />
           <EntitySet Name="workers" EntityType="Self.workers" />
-          <AssociationSet Name="FK__Orders__addressI__4F7CD00D" Association="Self.FK__Orders__addressI__4F7CD00D">
+          <AssociationSet Name="FK__Orders__addressI__5070F446" Association="Self.FK__Orders__addressI__5070F446">
             <End Role="addresses" EntitySet="addresses" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
@@ -1017,11 +1017,11 @@
             <End Role="Author" EntitySet="Author" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK__Coupons__categor__403A8C7D" Association="Self.FK__Coupons__categor__403A8C7D">
+          <AssociationSet Name="FK__Coupons__categor__412EB0B6" Association="Self.FK__Coupons__categor__412EB0B6">
             <End Role="Category" EntitySet="Category" />
             <End Role="Coupons" EntitySet="Coupons" />
           </AssociationSet>
-          <AssociationSet Name="FK__Discounts__categ__3D5E1FD2" Association="Self.FK__Discounts__categ__3D5E1FD2">
+          <AssociationSet Name="FK__Discounts__categ__3E52440B" Association="Self.FK__Discounts__categ__3E52440B">
             <End Role="Category" EntitySet="Category" />
             <End Role="Discounts" EntitySet="Discounts" />
           </AssociationSet>
@@ -1029,15 +1029,15 @@
             <End Role="Category" EntitySet="Category" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__client_i__4D94879B" Association="Self.FK__Orders__client_i__4D94879B">
+          <AssociationSet Name="FK__Orders__client_i__4E88ABD4" Association="Self.FK__Orders__client_i__4E88ABD4">
             <End Role="Client" EntitySet="Client" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__shopping___coupo__44FF419A" Association="Self.FK__shopping___coupo__44FF419A">
+          <AssociationSet Name="FK__shopping___coupo__45F365D3" Association="Self.FK__shopping___coupo__45F365D3">
             <End Role="Coupons" EntitySet="Coupons" />
             <End Role="shopping_cart" EntitySet="shopping_cart" />
           </AssociationSet>
-          <AssociationSet Name="FK__shopping___disco__440B1D61" Association="Self.FK__shopping___disco__440B1D61">
+          <AssociationSet Name="FK__shopping___disco__44FF419A" Association="Self.FK__shopping___disco__44FF419A">
             <End Role="Discounts" EntitySet="Discounts" />
             <End Role="shopping_cart" EntitySet="shopping_cart" />
           </AssociationSet>
@@ -1049,29 +1049,25 @@
             <End Role="Genre" EntitySet="Genre" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK__workers__jobID__571DF1D5" Association="Self.FK__workers__jobID__571DF1D5">
+          <AssociationSet Name="FK__workers__jobID__5812160E" Association="Self.FK__workers__jobID__5812160E">
             <End Role="jobs" EntitySet="jobs" />
             <End Role="workers" EntitySet="workers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__ordersta__5165187F" Association="Self.FK__Orders__ordersta__5165187F">
+          <AssociationSet Name="FK__Orders__ordersta__52593CB8" Association="Self.FK__Orders__ordersta__52593CB8">
             <End Role="order_status" EntitySet="order_status" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__cartID__4E88ABD4" Association="Self.FK__Orders__cartID__4E88ABD4">
+          <AssociationSet Name="FK__Orders__cartID__4F7CD00D" Association="Self.FK__Orders__cartID__4F7CD00D">
             <End Role="shopping_cart" EntitySet="shopping_cart" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__paymentI__5070F446" Association="Self.FK__Orders__paymentI__5070F446">
+          <AssociationSet Name="FK__Orders__paymentI__5165187F" Association="Self.FK__Orders__paymentI__5165187F">
             <End Role="payment" EntitySet="payment" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__returns__orderID__5441852A" Association="Self.FK__returns__orderID__5441852A">
+          <AssociationSet Name="FK__returns__orderID__5535A963" Association="Self.FK__returns__orderID__5535A963">
             <End Role="Orders" EntitySet="Orders" />
             <End Role="returns" EntitySet="returns" />
-          </AssociationSet>
-          <AssociationSet Name="FK__workers__orderID__5812160E" Association="Self.FK__workers__orderID__5812160E">
-            <End Role="Orders" EntitySet="Orders" />
-            <End Role="workers" EntitySet="workers" />
           </AssociationSet>
           <AssociationSet Name="FK__Product__publish__32E0915F" Association="Self.FK__Product__publish__32E0915F">
             <End Role="Publisher" EntitySet="Publisher" />
@@ -1085,7 +1081,11 @@
             <End Role="storage" EntitySet="storage" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK__shopping___produ__4316F928" Association="Self.FK__shopping___produ__4316F928">
+          <AssociationSet Name="FK__Products___produ__3B75D760" Association="Self.FK__Products___produ__3B75D760">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Products_in_order" EntitySet="Products_in_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__shopping___produ__440B1D61" Association="Self.FK__shopping___produ__440B1D61">
             <End Role="Products_in_order" EntitySet="Products_in_order" />
             <End Role="shopping_cart" EntitySet="shopping_cart" />
           </AssociationSet>
@@ -1231,6 +1231,7 @@
               <MappingFragment StoreEntitySet="Products_in_order">
                 <ScalarProperty Name="products_in_order_id" ColumnName="products_in_order_id" />
                 <ScalarProperty Name="counting" ColumnName="counting" />
+                <ScalarProperty Name="productID" ColumnName="productID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1287,10 +1288,9 @@
                 <ScalarProperty Name="surname" ColumnName="surname" />
                 <ScalarProperty Name="patronymic" ColumnName="patronymic" />
                 <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="jobID" ColumnName="jobID" />
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="jobID" ColumnName="jobID" />
-                <ScalarProperty Name="orderID" ColumnName="orderID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

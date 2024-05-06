@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace InternetBookShop
 {
@@ -29,7 +30,7 @@ namespace InternetBookShop
 
             string query =
                 "SELECT Orders.order_id, Client.name AS cName, Client.surname AS sName, Client.patronymic AS pName, shopping_cart.summ AS summ\r\nFROM Orders \r\nINNER JOIN Client ON Orders.client_id = Client.client_id\r\nINNER JOIN shopping_cart ON Orders.cartID=shopping_cart.cart_id";
-           using (SqlConnection con = new SqlConnection("Data Source=SHKAFF_2-0;Initial Catalog=InternetBookShop_Kyrcah;User ID=ima;Password=Kkn67913070;"))
+           using (SqlConnection con = new SqlConnection("Data Source=BD-KIP\\SQLEXPRESS;Initial Catalog=InternetBookShop_Kyrcah;User ID=sa;Password=1qaz!QAZ;"))
             {
                 con.Open();
 
@@ -71,6 +72,10 @@ namespace InternetBookShop
 
         private void sign_out_Click(object sender, RoutedEventArgs e)
         {
+            string fullpath = "C:\\Users\\217047\\Source\\Repos\\propleshina\\InternetBookShop\\InternetBookShop\\IsAdmin.txt";
+
+            File.WriteAllText(fullpath, string.Empty);
+            File.WriteAllText(fullpath, "false");
             NavigationService.Navigate(new Page1());
         }
 

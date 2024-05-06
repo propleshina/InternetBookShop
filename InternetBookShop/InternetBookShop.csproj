@@ -282,6 +282,8 @@
     <Resource Include="Icons\report.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="IsAdmin.txt" />
+    <Resource Include="Icons\owl.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

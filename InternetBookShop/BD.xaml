@@ -74,20 +74,28 @@
             </MenuItem.Icon>
         </MenuItem>
 
-        <MenuItem Grid.Row="2" Grid.Column="2" Header="Отчёт по всем заказам" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold" Click="MenuItem_Click" Grid.ColumnSpan="2" Margin="36,0,0,0">
+        <MenuItem Grid.Row="2" Grid.Column="2" Header="Отчёт по всем заказам" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontSize="18" FontWeight="Bold" Click="MenuItem_Click" Grid.ColumnSpan="2" Margin="1,0,0,0" RenderTransformOrigin="0.5,0.5">
+            <MenuItem.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.195"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.611"/>
+                </TransformGroup>
+            </MenuItem.RenderTransform>
             <MenuItem.Icon>
                 <Image Source="Icons/report.png"/>
             </MenuItem.Icon>
         </MenuItem>
 
 
-        <MenuItem Grid.Row="3" Grid.Column="2" Header="Отчёт по полученным товарам" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F"  FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2" Margin="36,0,0,0" Click="MenuItem_Click_1">
+        <MenuItem Grid.Row="3" Grid.Column="2" Header="Отчёт по полученным товарам" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F"  FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2" Click="MenuItem_Click_1">
             <MenuItem.Icon>
                 <Image Source="Icons/report.png"/>
             </MenuItem.Icon>
         </MenuItem>
 
-        <MenuItem Grid.Row="4" Grid.Column="2" Header="Выбор товара по категории" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F"  FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2" Margin="36,0,0,0" Click="MenuItem_Click_2">
+        <MenuItem Grid.Row="4" Grid.Column="2" Header="Выбор товара по категории" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F"  FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2" Click="MenuItem_Click_2">
             <MenuItem.Icon>
                 <Image Source="Icons/report.png"/>
             </MenuItem.Icon>

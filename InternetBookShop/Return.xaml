@@ -75,10 +75,10 @@
 
         <DataGrid x:Name="ReturnData" Background="#FF91E2C2" HorizontalAlignment="Left" Height="275" Margin="28,43,0,0" VerticalAlignment="Top" Width="523" Grid.ColumnSpan="3" Grid.Column="1" Grid.RowSpan="5" Grid.Row="1" >
         </DataGrid>
-        <Button x:Name="RedactButton" Content="Редактировать" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" Width="242" Height="42" Click="RedactButton_Click" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="6"/>
-        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="46,10,0,0" VerticalAlignment="Top" Width="113" Height="42" Click="BackButton_Click" Grid.Column="3" Grid.Row="6"/>
-        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="28,1,0,0" VerticalAlignment="Top" Width="116" Height="42" Click="DeleteButton_Click" Visibility="Hidden" Grid.Column="1" Grid.Row="7" />
-        <Button x:Name="SaveButton" Content="Сохранить" HorizontalAlignment="Left" Margin="149,1,0,0" VerticalAlignment="Top" Width="121" Height="42" Click="SaveButton_Click" Visibility="Hidden" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="7" />
+        <Button x:Name="RedactButton" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontWeight="Bold" FontSize="18" Content="Редактировать" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" Width="323" Height="42" Click="RedactButton_Click" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="6"/>
+        <Button x:Name="BackButton" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontWeight="Bold" FontSize="18" Content="Назад" HorizontalAlignment="Left" Margin="46,10,0,0" VerticalAlignment="Top" Width="113" Height="42" Click="BackButton_Click" Grid.Column="3" Grid.Row="6"/>
+        <Button x:Name="DeleteButton" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontWeight="Bold" FontSize="18" Content="Удалить" HorizontalAlignment="Left" Margin="28,1,0,0" VerticalAlignment="Top" Width="156" Height="42" Click="DeleteButton_Click" Visibility="Hidden" Grid.Column="1" Grid.Row="7" />
+        <Button x:Name="SaveButton" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" FontWeight="Bold" FontSize="18" Content="Сохранить" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="147" Height="42" Click="SaveButton_Click" Visibility="Hidden" Grid.Column="2" Grid.Row="7" />
 
         <Button Content="Выйти" HorizontalAlignment="Left" Margin="58,0,0,0" VerticalAlignment="Top" Width="130" Height="38" FontWeight="Bold" FontSize="18" OpacityMask="#FFFFCDCD" Foreground="#FF91E2C2" Background="#FF04878F" Grid.Column="3" Grid.Row="1" Click="sign_out_Click"/>
     </Grid>

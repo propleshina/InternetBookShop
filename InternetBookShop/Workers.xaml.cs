@@ -24,7 +24,22 @@ namespace InternetBookShop
         public Workers()
         {
             InitializeComponent();
-            WorkerData.ItemsSource = InternetBookShop_KyrcahEntities.GetContext().workers.ToList();
+            //WorkerData.ItemsSource = InternetBookShop_KyrcahEntities.GetContext().workers.ToList();
+            var context = InternetBookShop_KyrcahEntities.GetContext();
+            var query = from workers in context.workers
+                        join jobs in context.jobs on workers.jobID equals jobs.job_id
+                        select new
+                        {
+                            Id = workers.worker_id,
+                            Имя = workers.name,
+                            Фамилия = workers.surname,
+                            Отчество = workers.patronymic,
+                            Пол = workers.gender,
+                            Должность = jobs.name
+
+                        };
+
+            WorkerData.ItemsSource = query.ToList();
 
 
             string fullpath = "C:\\Users\\217047\\Source\\Repos\\propleshina\\InternetBookShop\\InternetBookShop\\IsAdmin.txt";
@@ -48,6 +63,7 @@ namespace InternetBookShop
         {
             if (Convert.ToString(RedactButton.Content) == "Редактировать")
             {
+                WorkerData.ItemsSource = InternetBookShop_KyrcahEntities.GetContext().workers.ToList();
                 RedactButton.Content = "Выйти из режима редактирования";
                 WorkerData.IsReadOnly = false;
                 DeleteButton.Visibility = Visibility.Visible;
@@ -58,6 +74,22 @@ namespace InternetBookShop
             }
             else
             {
+                var context = InternetBookShop_KyrcahEntities.GetContext();
+                var query = from workers in context.workers
+                            join jobs in context.jobs on workers.jobID equals jobs.job_id
+                            select new
+                            {
+                                Id = workers.worker_id,
+                                Имя = workers.name,
+                                Фамилия = workers.surname,
+                                Отчество = workers.patronymic,
+                                Пол = workers.gender,
+                                Должность = jobs.name
+
+                            };
+
+                WorkerData.ItemsSource = query.ToList();
+
                 RedactButton.Content = "Редактировать";
                 DeleteButton.Visibility = Visibility.Hidden;
                 DeleteButton.IsEnabled = false;

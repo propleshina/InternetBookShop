@@ -71,5 +71,10 @@ namespace InternetBookShop
         {
             NavigationService.Navigate(new report2());
         }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new report3());
+        }
     }
 }

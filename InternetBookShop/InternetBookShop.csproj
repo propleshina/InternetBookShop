@@ -146,6 +146,9 @@
     <Compile Include="report2.xaml.cs">
       <DependentUpon>report2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="report3.xaml.cs">
+      <DependentUpon>report3.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Return.xaml.cs">
       <DependentUpon>Return.xaml</DependentUpon>
     </Compile>
@@ -208,6 +211,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="report2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="report3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

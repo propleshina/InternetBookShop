@@ -91,7 +91,7 @@ namespace InternetBookShop
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-             NavigationService.Navigate(new order());
+             NavigationService.Navigate(new BD());
         }
 
     }

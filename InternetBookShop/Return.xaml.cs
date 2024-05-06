@@ -23,8 +23,27 @@ namespace InternetBookShop
     {
         public Return()
         {
+                        //            ReturnData.ItemsSource = InternetBookShop_KyrcahEntities.GetContext().returns.ToList();
+
             InitializeComponent();
-            ReturnData.ItemsSource = InternetBookShop_KyrcahEntities.GetContext().returns.ToList();
+            var context = InternetBookShop_KyrcahEntities.GetContext();
+            var query = from returns in context.returns
+                        join Orders in context.Orders on returns.orderID equals Orders.order_id
+                        select new
+                        {
+                            Id = returns.return_id,
+                            Название = Orders.order_id
+
+                        };
+
+            ReturnData.ItemsSource = query.ToList();
+
+            RedactButton.Content = "Редактировать";
+            DeleteButton.Visibility = Visibility.Hidden;
+            DeleteButton.IsEnabled = false;
+            SaveButton.Visibility = Visibility.Hidden;
+            SaveButton.IsEnabled = false;
+            ReturnData.IsReadOnly = true;
 
             string fullpath = "C:\\Users\\217047\\Source\\Repos\\propleshina\\InternetBookShop\\InternetBookShop\\IsAdmin.txt";
             string filecontent = File.ReadAllText(fullpath);
@@ -46,6 +65,8 @@ namespace InternetBookShop
         {
             if (Convert.ToString(RedactButton.Content) == "Редактировать")
             {
+                ReturnData.ItemsSource = InternetBookShop_KyrcahEntities.GetContext().returns.ToList();
+
                 RedactButton.Content = "Выйти из режима редактирования";
                 ReturnData.IsReadOnly = false;
                 DeleteButton.Visibility = Visibility.Visible;
@@ -56,6 +77,18 @@ namespace InternetBookShop
             }
             else
             {
+                var context = InternetBookShop_KyrcahEntities.GetContext();
+                var query = from returns in context.returns
+                            join Orders in context.Orders on returns.orderID equals Orders.order_id
+                            select new
+                            {
+                                Id = returns.return_id,
+                                Название = Orders.order_id
+
+                            };
+
+                ReturnData.ItemsSource = query.ToList();
+
                 RedactButton.Content = "Редактировать";
                 DeleteButton.Visibility = Visibility.Hidden;
                 DeleteButton.IsEnabled = false;

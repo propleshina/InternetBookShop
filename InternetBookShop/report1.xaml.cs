@@ -29,7 +29,7 @@ namespace InternetBookShop
             string itog = "SELECT SUM(shopping_cart.summ) AS 'Рублей'\r\nFROM Orders \r\nINNER JOIN shopping_cart ON Orders.cartID=shopping_cart.cart_id\r\nINNER JOIN order_status ON Orders.orderstatusID=order_status.status_id";
 
             string query =
-                "SELECT Orders.order_id, Client.name AS cName, Client.surname AS sName, Client.patronymic AS pName, shopping_cart.summ AS summ\r\nFROM Orders \r\nINNER JOIN Client ON Orders.client_id = Client.client_id\r\nINNER JOIN shopping_cart ON Orders.cartID=shopping_cart.cart_id";
+                "SELECT Orders.order_id, Client.name AS Имя, Client.surname AS Фамилия, Client.patronymic AS Отчество, shopping_cart.summ AS Сумма\r\nFROM Orders \r\nINNER JOIN Client ON Orders.client_id = Client.client_id\r\nINNER JOIN shopping_cart ON Orders.cartID=shopping_cart.cart_id";
            using (SqlConnection con = new SqlConnection("Data Source=BD-KIP\\SQLEXPRESS;Initial Catalog=InternetBookShop_Kyrcah;User ID=sa;Password=1qaz!QAZ;"))
             {
                 con.Open();

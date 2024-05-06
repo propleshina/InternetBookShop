@@ -48,6 +48,8 @@ namespace InternetBookShop
         {
             if (Convert.ToString(RedactButton.Content)=="Редактировать")
             {
+
+
                 RedactButton.Content = "Выйти из режима редактирования";
                 ClientData.IsReadOnly = false;
                 DeleteButton.Visibility = Visibility.Visible;

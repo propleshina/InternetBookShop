@@ -24,7 +24,24 @@ namespace InternetBookShop
         public order()
         {
             InitializeComponent();
-            OrderData.ItemsSource = InternetBookShop_KyrcahEntities.GetContext().Orders.ToList();
+
+            var context = InternetBookShop_KyrcahEntities.GetContext();
+            var query = from Orders in context.Orders
+                        join Client in context.Client on Orders.client_id equals Client.client_id
+                        join addresses in context.addresses on Orders.addressID equals addresses.address_id
+                        join payment in context.payment on Orders.paymentID equals payment.payment_id
+                        join order_status in context.order_status on Orders.orderstatusID equals order_status.status_id
+                        select new
+                        {
+                            Id = Orders.order_id,
+                            Клиент = Client.name,
+                            Город = addresses.city,
+                            СтатусОплаты = payment.name,
+                            СтатусЗаказа= order_status.name
+  
+                        };
+
+            OrderData.ItemsSource = query.ToList();
 
             string fullpath = "C:\\Users\\217047\\Source\\Repos\\propleshina\\InternetBookShop\\InternetBookShop\\IsAdmin.txt";
             string filecontent = File.ReadAllText(fullpath);
@@ -47,6 +64,8 @@ namespace InternetBookShop
         {
             if (Convert.ToString(RedactButton.Content) == "Редактировать")
             {
+                OrderData.ItemsSource = InternetBookShop_KyrcahEntities.GetContext().Orders.ToList();
+
                 RedactButton.Content = "Выйти из режима редактирования";
                 OrderData.IsReadOnly = false;
                 DeleteButton.Visibility = Visibility.Visible;
@@ -57,6 +76,24 @@ namespace InternetBookShop
             }
             else
             {
+                var context = InternetBookShop_KyrcahEntities.GetContext();
+                var query = from Orders in context.Orders
+                            join Client in context.Client on Orders.client_id equals Client.client_id
+                            join addresses in context.addresses on Orders.addressID equals addresses.address_id
+                            join payment in context.payment on Orders.paymentID equals payment.payment_id
+                            join order_status in context.order_status on Orders.orderstatusID equals order_status.status_id
+                            select new
+                            {
+                                Id = Orders.order_id,
+                                Клиент = Client.name,
+                                Город = addresses.city,
+                                СтатусОплаты = payment.name,
+                                СтатусЗаказа = order_status.name
+
+                            };
+
+                OrderData.ItemsSource = query.ToList();
+
                 RedactButton.Content = "Редактировать";
                 DeleteButton.Visibility = Visibility.Hidden;
                 DeleteButton.IsEnabled = false;

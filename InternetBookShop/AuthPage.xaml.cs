@@ -14,25 +14,22 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 
+public static class UserContext
+{
+    public static bool IsAdmin { get; set; }
+}
+
 
 
 namespace InternetBookShop
 {
-    /// <summary>
-    /// Логика взаимодействия для Page1.xaml
-    /// </summary>
-
-
     public partial class Page1 : Page
     {
         public Page1()
         {
             InitializeComponent();
 
-            string fullpath = "C:\\Users\\217047\\Source\\Repos\\propleshina\\InternetBookShop\\InternetBookShop\\IsAdmin.txt";
-
-            File.WriteAllText(fullpath, string.Empty);
-            File.WriteAllText(fullpath, "false");
+            UserContext.IsAdmin = false;
         }
         public System.Windows.ResizeMode NoResize { get; set; }
         private void ButtonAuth_Click(object sender, RoutedEventArgs e)
@@ -63,10 +60,7 @@ namespace InternetBookShop
                     {
                         if (loginBox.Text == "admin")
                         {
-                            string fullpath = "C:\\Users\\217047\\Source\\Repos\\propleshina\\InternetBookShop\\InternetBookShop\\IsAdmin.txt";
-
-                            File.WriteAllText(fullpath, string.Empty);
-                            File.WriteAllText(fullpath, "true");
+                            UserContext.IsAdmin = true;
                         }
                         MessageBox.Show($"Здравствуйте, {user.name} {user.patronymic}!");
                         loginBox.Clear();

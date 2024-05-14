@@ -53,6 +53,7 @@ namespace InternetBookShop
         public virtual DbSet<Review> Review { get; set; }
         public virtual DbSet<shopping_cart> shopping_cart { get; set; }
         public virtual DbSet<storage> storage { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<workers> workers { get; set; }
     }
 }

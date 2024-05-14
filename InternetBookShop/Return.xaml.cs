@@ -45,9 +45,8 @@ namespace InternetBookShop
             SaveButton.IsEnabled = false;
             ReturnData.IsReadOnly = true;
 
-            string fullpath = "C:\\Users\\217047\\Source\\Repos\\propleshina\\InternetBookShop\\InternetBookShop\\IsAdmin.txt";
-            string filecontent = File.ReadAllText(fullpath);
-            if (filecontent.Trim().ToLower() == "false")
+
+            if (UserContext.IsAdmin == false)
             {
                 RedactButton.Visibility = Visibility.Hidden;
             }
@@ -139,10 +138,7 @@ namespace InternetBookShop
 
         private void sign_out_Click(object sender, RoutedEventArgs e)
         {
-            string fullpath = "C:\\Users\\217047\\Source\\Repos\\propleshina\\InternetBookShop\\InternetBookShop\\IsAdmin.txt";
-
-            File.WriteAllText(fullpath, string.Empty);
-            File.WriteAllText(fullpath, "false");
+            UserContext.IsAdmin = false;
             NavigationService.Navigate(new Page1());
         }
     }

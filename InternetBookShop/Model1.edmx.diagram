@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="673be222134b4767b3d221bbbe00fff5" Name="Diagram1">
+      <Diagram DiagramId="f43f40d02d6e437fac6cd952a197e826" Name="Diagram1">
         <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.addresses" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Author" Width="1.5" PointX="5.75" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Category" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
@@ -24,6 +24,7 @@
         <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.Review" Width="1.5" PointX="5.75" PointY="18.75" IsExpanded="true" />
         <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.shopping_cart" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.storage" Width="1.5" PointX="5.75" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="InternetBookShop_KyrcahModel.workers" Width="1.5" PointX="10" PointY="12" IsExpanded="true" />
         <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Orders__addressI__5070F446" ManuallyRouted="false" />
         <AssociationConnector Association="InternetBookShop_KyrcahModel.FK__Product__authorI__33D4B598" ManuallyRouted="false" />
